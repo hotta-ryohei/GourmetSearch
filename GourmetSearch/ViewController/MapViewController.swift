@@ -16,9 +16,13 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization() // 位置情報の許可を呼び出す
+        mapView.userTrackingMode = .follow  // 地図の中心を現在地にするために初期値を追跡に設定
+
+
     }
     
 }
@@ -31,6 +35,7 @@ extension MapViewController: CLLocationManagerDelegate {
         case .notDetermined:
             // 許可を求める
             locationManager.requestWhenInUseAuthorization()
+            
             // 拒否されている場合
         case .restricted, .denied:
             // locationPermissionAlertを表示
@@ -38,7 +43,9 @@ extension MapViewController: CLLocationManagerDelegate {
             
             // 許可されている場合
         case .authorizedWhenInUse, .authorizedAlways:
+            // 位置情報を使用開始
             locationManager.startUpdatingLocation()
+            
         default:
             break
         }
