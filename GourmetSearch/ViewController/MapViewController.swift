@@ -52,6 +52,9 @@ class MapViewController: UIViewController {
         }
     }
     
+    @IBAction func openSearchResultView(_ sender: UIButton) {
+        performSegue(withIdentifier: "showSearchResultViewController", sender: self)
+    }
 }
 
 

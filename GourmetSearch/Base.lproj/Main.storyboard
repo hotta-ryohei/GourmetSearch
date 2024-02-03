@@ -34,6 +34,10 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <buttonConfiguration key="configuration" style="filled" title="お店を検索"/>
+                                <connections>
+                                    <action selector="openSearchResultView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VBC-xe-0qI"/>
+                                    <segue destination="23d-Wt-xVT" kind="show" identifier="showSearchResultViewController" id="odd-RP-h1f"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8f6-5a-Dqq">
                                 <rect key="frame" x="121" y="133.33333333333334" width="151" height="30"/>
@@ -81,6 +85,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="487.78625954198469" y="-88.028169014084511"/>
+        </scene>
+        <!--Search Result View Controller-->
+        <scene sceneID="edc-kU-nJB">
+            <objects>
+                <viewController id="23d-Wt-xVT" customClass="SearchResultViewController" customModule="GourmetSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tCJ-KA-1cB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Xn-gm-7y3">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="822"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="ave-xF-0pX">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ave-xF-0pX" id="xKN-CU-HDM">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="23d-Wt-xVT" id="EsL-Bl-Qwa"/>
+                                    <outlet property="delegate" destination="23d-Wt-xVT" id="P49-SW-r50"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JbO-c8-96p"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="b09-NZ-ZWm"/>
+                    <connections>
+                        <outlet property="SearchResultView" destination="6Xn-gm-7y3" id="Jf3-nK-e84"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Noy-Bd-ZjP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1251.145038167939" y="-76.056338028169023"/>
         </scene>
     </scenes>
     <resources>
