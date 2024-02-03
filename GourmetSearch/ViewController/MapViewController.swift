@@ -15,7 +15,7 @@ class MapViewController: UIViewController {
     
     private var locationManager: CLLocationManager!
     var searchRadius: Double = 1000 // 検索する半径
-    
+    let sortRadiusSliderModel = SortRadiusSliderModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,12 @@ class MapViewController: UIViewController {
         let searchCircle: MKCircle = MKCircle(center:mapView.region.center, radius: CLLocationDistance(searchRadius))   // searchRadiusをもとに円の範囲を指定
         mapView.addOverlay(searchCircle)
         
+    }
+    
+    
+    @IBAction func radiusSlider(_ sender: UISlider) {
+        let searchRadius = sortRadiusSliderModel.sortRadiusSlider(radius: radiusSlider.value)
+        print(searchRadius)
     }
     
 }
