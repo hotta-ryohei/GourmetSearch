@@ -21,18 +21,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="72P-oR-R1N">
+                                <rect key="frame" x="96" y="738" width="201" height="31"/>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="560-QI-eX4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="93h-yj-Nib"/>
                             <constraint firstAttribute="bottom" secondItem="560-QI-eX4" secondAttribute="bottom" id="9Ki-sg-7nI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="72P-oR-R1N" secondAttribute="bottom" constant="50" id="As8-7m-z7t"/>
                             <constraint firstItem="560-QI-eX4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GCr-m8-4XC"/>
                             <constraint firstItem="560-QI-eX4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PPc-Kt-CbH"/>
                             <constraint firstItem="560-QI-eX4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TRA-aN-qFJ"/>
+                            <constraint firstItem="72P-oR-R1N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="kLO-Al-0Io"/>
+                            <constraint firstItem="560-QI-eX4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="r0u-di-lpc"/>
+                            <constraint firstItem="72P-oR-R1N" firstAttribute="centerX" secondItem="560-QI-eX4" secondAttribute="centerX" id="shx-5p-Frj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="560-QI-eX4" id="S6r-cL-2zB"/>
+                        <outlet property="radiusSlider" destination="72P-oR-R1N" id="48y-BR-Hyv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

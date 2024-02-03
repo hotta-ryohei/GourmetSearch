@@ -11,7 +11,8 @@ import MapKit
 class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
-
+    @IBOutlet weak var radiusSlider: UISlider!
+    
     private var locationManager: CLLocationManager!
     var searchRadius: Double = 1000 // 検索する半径
     
