@@ -22,30 +22,60 @@
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.5" minValue="1" maxValue="6" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72P-oR-R1N">
-                                <rect key="frame" x="45" y="733" width="303" height="31"/>
+                                <rect key="frame" x="72" y="738" width="249" height="31"/>
                                 <connections>
                                     <action selector="radiusSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="F3M-lE-MXO"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYm-Ny-MHz">
+                                <rect key="frame" x="86.666666666666671" y="79" width="219.66666666666663" height="34.333333333333343"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="お店を検索">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="filled" title="お店を検索"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8f6-5a-Dqq">
+                                <rect key="frame" x="121" y="133.33333333333334" width="151" height="30"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="T98-CR-hER"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="560-QI-eX4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="93h-yj-Nib"/>
-                            <constraint firstAttribute="bottom" secondItem="560-QI-eX4" secondAttribute="bottom" id="9Ki-sg-7nI"/>
-                            <constraint firstItem="72P-oR-R1N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F9l-RF-RQ8"/>
-                            <constraint firstItem="560-QI-eX4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GCr-m8-4XC"/>
-                            <constraint firstItem="560-QI-eX4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PPc-Kt-CbH"/>
-                            <constraint firstItem="560-QI-eX4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TRA-aN-qFJ"/>
-                            <constraint firstItem="72P-oR-R1N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V8P-Fr-1Gw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="72P-oR-R1N" secondAttribute="bottom" constant="55" id="eZk-ln-GTB"/>
-                            <constraint firstItem="72P-oR-R1N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="gNT-Rq-zxB"/>
-                            <constraint firstItem="560-QI-eX4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="r0u-di-lpc"/>
+                            <constraint firstItem="72P-oR-R1N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="74" id="1Lu-at-8Pv"/>
+                            <constraint firstItem="PYm-Ny-MHz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86.666666666666686" id="DM8-BF-aHU"/>
+                            <constraint firstItem="8f6-5a-Dqq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="121" id="IS9-Ln-SRY"/>
+                            <constraint firstItem="8f6-5a-Dqq" firstAttribute="centerX" secondItem="560-QI-eX4" secondAttribute="centerX" id="JBf-ad-Hhk"/>
+                            <constraint firstItem="8f6-5a-Dqq" firstAttribute="centerX" secondItem="PYm-Ny-MHz" secondAttribute="centerX" id="KVE-J7-blS"/>
+                            <constraint firstItem="560-QI-eX4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MpL-uv-M21"/>
+                            <constraint firstItem="8f6-5a-Dqq" firstAttribute="centerX" secondItem="72P-oR-R1N" secondAttribute="centerX" id="RKF-Fl-NFJ"/>
+                            <constraint firstItem="PYm-Ny-MHz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Uj3-G7-ILP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="72P-oR-R1N" secondAttribute="bottom" constant="50" id="bFx-cI-iJa"/>
+                            <constraint firstItem="8f6-5a-Dqq" firstAttribute="top" secondItem="PYm-Ny-MHz" secondAttribute="bottom" constant="19.999999999999972" id="h34-iV-bqe"/>
+                            <constraint firstAttribute="bottom" secondItem="560-QI-eX4" secondAttribute="bottom" id="hwg-ix-7nL"/>
+                            <constraint firstItem="560-QI-eX4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mzq-3R-Xlu"/>
+                            <constraint firstAttribute="trailing" secondItem="560-QI-eX4" secondAttribute="trailing" id="yD8-1N-d9T"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="isSearchRadius" destination="8f6-5a-Dqq" id="vQe-3x-Bwe"/>
                         <outlet property="mapView" destination="560-QI-eX4" id="S6r-cL-2zB"/>
                         <outlet property="radiusSlider" destination="72P-oR-R1N" id="48y-BR-Hyv"/>
+                        <outlet property="searchStore" destination="PYm-Ny-MHz" id="PSZ-zH-RxA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -54,6 +84,12 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
