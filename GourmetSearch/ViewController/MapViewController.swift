@@ -15,28 +15,32 @@ class MapViewController: UIViewController {
     
     private var locationManager: CLLocationManager!
     var searchRadius: Int = 1000 // 検索する半径
-    let sortRadiusSliderModel = SortRadiusSliderModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // locationManagerの初期設定
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization() // 位置情報の許可を呼び出す
-
+        
         mapView.userTrackingMode = .follow  // 地図の中心を現在地にするために初期値を追跡に設定
         mapView.delegate = self
-        let searchCircle: MKCircle = MKCircle(center:mapView.region.center, radius: CLLocationDistance(searchRadius))   // searchRadiusをもとに円の範囲を指定
-        mapView.addOverlay(searchCircle)
+        let searchCircle: MKCircle = MKCircle(center:mapView.region.center, radius: CLLocationDistance(searchRadius))   // 現在地の周りに初期値である1000mの円を設定
+        mapView.addOverlay(searchCircle)    // 円をマップに追加
         
     }
     
     
     @IBAction func radiusSlider(_ sender: UISlider) {
+        let sortRadiusSliderModel = SortRadiusSliderModel()
         let isIntRadius = sortRadiusSliderModel.sortRadiusSlider(radius: radiusSlider.value)
-        searchRadius = isIntRadius
+        // 返り値0は初期値の1000mになおす
+        if isIntRadius != 0 {
+            searchRadius = isIntRadius
+        } else {
+            searchRadius = 1000
+        }
         
         // 検索半径の更新があった時、updateCircleを呼び出す
         if let location = locationManager.location {
@@ -99,7 +103,7 @@ extension MapViewController: MKMapViewDelegate {
         guard let location = locations.last else { return }
         updateCircle(location.coordinate)
     }
-
+    
     // 円を更新するメソッド
     func updateCircle(_ coordinate: CLLocationCoordinate2D) {
         let searchCircle = MKCircle(center: coordinate, radius: CLLocationDistance(searchRadius))
@@ -108,5 +112,5 @@ extension MapViewController: MKMapViewDelegate {
         mapView.removeOverlays(mapView.overlays)
         mapView.addOverlay(searchCircle)
     }
-
+    
 }
