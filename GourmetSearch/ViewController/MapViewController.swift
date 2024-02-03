@@ -14,7 +14,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var radiusSlider: UISlider!
     
     private var locationManager: CLLocationManager!
-    var searchRadius: Double = 1000 // 検索する半径
+    var searchRadius: Int = 1000 // 検索する半径
     let sortRadiusSliderModel = SortRadiusSliderModel()
     
     override func viewDidLoad() {
@@ -35,8 +35,13 @@ class MapViewController: UIViewController {
     
     
     @IBAction func radiusSlider(_ sender: UISlider) {
-        let searchRadius = sortRadiusSliderModel.sortRadiusSlider(radius: radiusSlider.value)
-        print(searchRadius)
+        let isIntRadius = sortRadiusSliderModel.sortRadiusSlider(radius: radiusSlider.value)
+        searchRadius = isIntRadius
+        
+        // 検索半径の更新があった時、updateCircleを呼び出す
+        if let location = locationManager.location {
+            updateCircle(location.coordinate)
+        }
     }
     
 }
@@ -97,7 +102,7 @@ extension MapViewController: MKMapViewDelegate {
 
     // 円を更新するメソッド
     func updateCircle(_ coordinate: CLLocationCoordinate2D) {
-        let searchCircle = MKCircle(center: coordinate, radius: searchRadius)
+        let searchCircle = MKCircle(center: coordinate, radius: CLLocationDistance(searchRadius))
         
         // 地図上の円を削除して、新しい円を追加する
         mapView.removeOverlays(mapView.overlays)
