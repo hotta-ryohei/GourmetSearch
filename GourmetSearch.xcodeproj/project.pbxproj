@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		341FA5852B6F307900E315FB /* StoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FA5842B6F307900E315FB /* StoreDataModel.swift */; };
 		3450F9132B6E863100143473 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3450F9122B6E863100143473 /* SearchResultViewController.swift */; };
-		3450F9152B6E92E100143473 /* StoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3450F9142B6E92E100143473 /* StoreDataModel.swift */; };
+		3450F9152B6E92E100143473 /* GetStoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3450F9142B6E92E100143473 /* GetStoreDataModel.swift */; };
+		3450F9192B6E94F000143473 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3450F9182B6E94F000143473 /* .gitignore */; };
 		34719DE22B6C815800F45425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34719DE12B6C815800F45425 /* AppDelegate.swift */; };
 		34719DE42B6C815800F45425 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34719DE32B6C815800F45425 /* SceneDelegate.swift */; };
 		34719DE62B6C815800F45425 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34719DE52B6C815800F45425 /* MapViewController.swift */; };
@@ -20,8 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		341FA5842B6F307900E315FB /* StoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataModel.swift; sourceTree = "<group>"; };
 		3450F9122B6E863100143473 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
-		3450F9142B6E92E100143473 /* StoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataModel.swift; sourceTree = "<group>"; };
+		3450F9142B6E92E100143473 /* GetStoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStoreDataModel.swift; sourceTree = "<group>"; };
+		3450F9182B6E94F000143473 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		34719DDE2B6C815800F45425 /* GourmetSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34719DE12B6C815800F45425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34719DE32B6C815800F45425 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 		34719DD52B6C815800F45425 = {
 			isa = PBXGroup;
 			children = (
+				3450F9182B6E94F000143473 /* .gitignore */,
 				34719DE02B6C815800F45425 /* GourmetSearch */,
 				34719DDF2B6C815800F45425 /* Products */,
 				34719DF52B6C953B00F45425 /* Frameworks */,
@@ -91,7 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				349D792C2B6DF4D200C63469 /* SortRadiusSliderModel.swift */,
-				3450F9142B6E92E100143473 /* StoreDataModel.swift */,
+				341FA5842B6F307900E315FB /* StoreDataModel.swift */,
+				3450F9142B6E92E100143473 /* GetStoreDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,6 +176,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3450F9192B6E94F000143473 /* .gitignore in Resources */,
 				34719DEE2B6C815900F45425 /* LaunchScreen.storyboard in Resources */,
 				34719DEB2B6C815900F45425 /* Assets.xcassets in Resources */,
 				34719DE92B6C815800F45425 /* Main.storyboard in Resources */,
@@ -186,8 +193,9 @@
 				34719DE62B6C815800F45425 /* MapViewController.swift in Sources */,
 				34719DE22B6C815800F45425 /* AppDelegate.swift in Sources */,
 				349D792D2B6DF4D200C63469 /* SortRadiusSliderModel.swift in Sources */,
-				3450F9152B6E92E100143473 /* StoreDataModel.swift in Sources */,
+				3450F9152B6E92E100143473 /* GetStoreDataModel.swift in Sources */,
 				34719DE42B6C815800F45425 /* SceneDelegate.swift in Sources */,
+				341FA5852B6F307900E315FB /* StoreDataModel.swift in Sources */,
 				3450F9132B6E863100143473 /* SearchResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

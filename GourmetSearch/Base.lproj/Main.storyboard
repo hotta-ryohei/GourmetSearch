@@ -119,7 +119,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="b09-NZ-ZWm"/>
                     <connections>
-                        <outlet property="SearchResultView" destination="6Xn-gm-7y3" id="Jf3-nK-e84"/>
+                        <outlet property="SearchResultView" destination="6Xn-gm-7y3" id="NBl-2I-5ao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Noy-Bd-ZjP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
