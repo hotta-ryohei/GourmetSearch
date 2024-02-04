@@ -12,7 +12,6 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var searchStore: UIButton!
-    @IBOutlet weak var isSearchRadius: UILabel!
     @IBOutlet weak var radiusSlider: UISlider!
     
     private var locationManager: CLLocationManager!
@@ -30,7 +29,7 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         let searchCircle: MKCircle = MKCircle(center:mapView.region.center, radius: CLLocationDistance(searchRadius))   // 現在地の周りに初期値である1000mの円を設定
         mapView.addOverlay(searchCircle)    // 円をマップに追加
-        isSearchRadius.text = String(" 検索範囲: \(searchRadius)m ")  // textを初期化
+        navigationItem.title = String("検索範囲: \(searchRadius)m") // ナビゲーションビューのtitleに検索範囲を表示
         
     }
     
@@ -44,8 +43,8 @@ class MapViewController: UIViewController {
         } else {
             searchRadius = 1000
         }
-        // isSearchRadiusのtextも更新
-        isSearchRadius.text = String(" 検索範囲: \(searchRadius)m ")
+        // ナビゲーションビューのtitleも更新
+        navigationItem.title = String("検索範囲: \(searchRadius)m")
         // 検索半径の更新があった時、updateCircleを呼び出す
         if let location = locationManager.location {
             updateCircle(location.coordinate)
