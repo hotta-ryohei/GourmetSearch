@@ -65,7 +65,7 @@ class MapViewController: UIViewController {
                 // データを取得
                 let storeDatas = try await getStoreDataModel.getStoreData(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
                 // サーチリザルトビューを開く処理へ
-                self.openSearchResultView(storeDatas: storeDatas)
+                self.openResultView(storeDatas: storeDatas)
             } catch {
                 print(error)
             }
@@ -73,78 +73,83 @@ class MapViewController: UIViewController {
     }
     
     // サーチリザルトビューを開く処理
-    func openSearchResultView(storeDatas: StoreData) {
-        // ViewControllerの引数に合った形に変換
+    func openResultView(storeDatas: StoreData) {
+        // ResultViewControllerの関数に合った形に変換
         let sendShopsNumber = storeDatas.results.results_available
         let sendShopInfo = storeDatas.results.shop
-
-        DispatchQueue.main.async {
-            
-        }
+        
+        let storyboard = self.storyboard!
+        let ResultView = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+        
+        // ResultViewControllerにデータを渡す
+        ResultView.shopsNumber = sendShopsNumber
+        ResultView.shops = sendShopInfo
+        
+        navigationController?.pushViewController(ResultView, animated: true)
     }
 }
-    
-    
-    extension MapViewController: CLLocationManagerDelegate {
-        // 位置情報の使用許可を取るためのメソッド
-        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-            switch status {
-                // 許可がされていない場合
-            case .notDetermined:
-                locationManager.requestWhenInUseAuthorization() // 許可を求める
-                
-                // 拒否されている場合
-            case .restricted, .denied:
-                locationPermissionAlert()   // locationPermissionAlertを表示
-                
-                // 許可されている場合
-            case .authorizedWhenInUse, .authorizedAlways:
-                locationManager.startUpdatingLocation() // 位置情報を使用開始
-                
-            default:
-                break
-            }
+
+
+extension MapViewController: CLLocationManagerDelegate {
+    // 位置情報の使用許可を取るためのメソッド
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+            // 許可がされていない場合
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization() // 許可を求める
+            
+            // 拒否されている場合
+        case .restricted, .denied:
+            locationPermissionAlert()   // locationPermissionAlertを表示
+            
+            // 許可されている場合
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation() // 位置情報を使用開始
+            
+        default:
+            break
         }
-        
-        // 位置情報の使用を拒否されている場合表示されるアラート
-        func locationPermissionAlert() {
-            let alertController = UIAlertController(
-                title: "位置情報の使用が拒否されています。",
-                message: "このアプリには位置情報が必要です。設定から位置情報の使用を許可してください。",
-                preferredStyle: .alert
-            )
-            
-            let closeAlert = UIAlertAction(title: "閉じる", style: .cancel, handler: nil)
-            
-            alertController.addAction(closeAlert)
-            
-            present(alertController, animated: true, completion: nil)
-        }
-        
     }
     
-    extension MapViewController: MKMapViewDelegate {
-        // マップに表示する円の設定
-        func mapView(_ mapView: MKMapView,rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-            let settingCircle: MKCircleRenderer = MKCircleRenderer(overlay:  overlay)
-            settingCircle.fillColor = UIColor.blue.withAlphaComponent(0.1)  // 塗りつぶしの色
-            settingCircle.lineWidth = 0 // 外枠を無しにする
-            return settingCircle
-        }
+    // 位置情報の使用を拒否されている場合表示されるアラート
+    func locationPermissionAlert() {
+        let alertController = UIAlertController(
+            title: "位置情報の使用が拒否されています。",
+            message: "このアプリには位置情報が必要です。設定から位置情報の使用を許可してください。",
+            preferredStyle: .alert
+        )
         
-        // 位置情報の更新があった時、updateCircleを呼び出す
-        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            guard let location = locations.last else { return }
-            updateCircle(location.coordinate)
-        }
+        let closeAlert = UIAlertAction(title: "閉じる", style: .cancel, handler: nil)
         
-        // 円を更新するメソッド
-        func updateCircle(_ coordinate: CLLocationCoordinate2D) {
-            let searchCircle = MKCircle(center: coordinate, radius: CLLocationDistance(searchRadius))
-            
-            // 地図上の円を削除して、新しい円を追加する
-            mapView.removeOverlays(mapView.overlays)
-            mapView.addOverlay(searchCircle)
-        }
+        alertController.addAction(closeAlert)
         
+        present(alertController, animated: true, completion: nil)
     }
+    
+}
+
+extension MapViewController: MKMapViewDelegate {
+    // マップに表示する円の設定
+    func mapView(_ mapView: MKMapView,rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let settingCircle: MKCircleRenderer = MKCircleRenderer(overlay:  overlay)
+        settingCircle.fillColor = UIColor.blue.withAlphaComponent(0.1)  // 塗りつぶしの色
+        settingCircle.lineWidth = 0 // 外枠を無しにする
+        return settingCircle
+    }
+    
+    // 位置情報の更新があった時、updateCircleを呼び出す
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        updateCircle(location.coordinate)
+    }
+    
+    // 円を更新するメソッド
+    func updateCircle(_ coordinate: CLLocationCoordinate2D) {
+        let searchCircle = MKCircle(center: coordinate, radius: CLLocationDistance(searchRadius))
+        
+        // 地図上の円を削除して、新しい円を追加する
+        mapView.removeOverlays(mapView.overlays)
+        mapView.addOverlay(searchCircle)
+    }
+    
+}

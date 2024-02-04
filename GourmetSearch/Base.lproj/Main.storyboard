@@ -12,7 +12,7 @@
         <!--title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="GourmetSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MapViewController" customModule="GourmetSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYm-Ny-MHz">
-                                <rect key="frame" x="71" y="118" width="251" height="34.333333333333329"/>
+                                <rect key="frame" x="71" y="117.99999999999999" width="251" height="34.333333333333329"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="お店を検索">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -65,40 +65,43 @@
             </objects>
             <point key="canvasLocation" x="1414.5038167938931" y="-88.028169014084511"/>
         </scene>
-        <!--Search Result View Controller-->
+        <!--ResultViewController-->
         <scene sceneID="edc-kU-nJB">
             <objects>
-                <viewController id="23d-Wt-xVT" customClass="SearchResultViewController" customModule="GourmetSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultViewController" title="ResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="23d-Wt-xVT" customClass="ResultViewController" customModule="GourmetSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tCJ-KA-1cB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Xn-gm-7y3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Xn-gm-7y3" userLabel="ResultView">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="822"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="ave-xF-0pX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultViewCell" id="pkl-nH-r7U">
                                         <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ave-xF-0pX" id="xKN-CU-HDM">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pkl-nH-r7U" id="b2j-uH-PDl">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="23d-Wt-xVT" id="EsL-Bl-Qwa"/>
-                                    <outlet property="delegate" destination="23d-Wt-xVT" id="P49-SW-r50"/>
+                                    <outlet property="dataSource" destination="23d-Wt-xVT" id="cGC-ut-Tcx"/>
+                                    <outlet property="delegate" destination="23d-Wt-xVT" id="EJf-DE-x9s"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JbO-c8-96p"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="b09-NZ-ZWm"/>
+                    <navigationItem key="navigationItem" title="検索結果" leftItemsSupplementBackButton="YES" id="b09-NZ-ZWm">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="mFu-P3-sA3"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="SearchResultView" destination="6Xn-gm-7y3" id="NBl-2I-5ao"/>
+                        <outlet property="resultView" destination="6Xn-gm-7y3" id="FMR-df-gsh"/>
+                        <outlet property="view" destination="6Xn-gm-7y3" id="x4N-BR-xq1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Noy-Bd-ZjP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
