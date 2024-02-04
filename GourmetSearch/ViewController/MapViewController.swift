@@ -52,7 +52,8 @@ class MapViewController: UIViewController {
         }
     }
     
-    @IBAction func openSearchResultView(_ sender: UIButton) {
+    // ボタンを押されたらGetStoreDataを呼び出す
+    @IBAction func CallGetStoreData(_ sender: UIButton) {
         let getStoreDataModel = GetStoreDataModel()
         let sortRadiusSliderModel = SortRadiusSliderModel()
         
@@ -62,11 +63,24 @@ class MapViewController: UIViewController {
         let myLongitude = Double((locationManager.location?.coordinate.longitude)!)
         Task {
             do {
-                try await getStoreDataModel.getStoreData(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
-                //try await self.openSearchResultView(searchStore)
+                // データを取得
+                let storeDatas = try await getStoreDataModel.getStoreData(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
+                // サーチリザルトビューを開く処理へ
+                self.openSearchResultView(storeDatas: storeDatas)
             } catch {
                 print(error)
             }
+        }
+    }
+    
+    // サーチリザルトビューを開く処理
+    func openSearchResultView(storeDatas: StoreData) {
+        // ViewControllerの引数に合った形に変換
+        let sendShopsNumber = storeDatas.results.results_available
+        let sendShopInfo = storeDatas.results.shop
+
+        DispatchQueue.main.async {
+            
         }
     }
 }

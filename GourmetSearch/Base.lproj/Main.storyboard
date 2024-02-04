@@ -35,8 +35,7 @@
                                 </state>
                                 <buttonConfiguration key="configuration" style="filled" title="お店を検索"/>
                                 <connections>
-                                    <action selector="openSearchResultView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VBC-xe-0qI"/>
-                                    <segue destination="23d-Wt-xVT" kind="show" identifier="showSearchResultViewController" id="odd-RP-h1f"/>
+                                    <action selector="CallGetStoreData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VBC-xe-0qI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8f6-5a-Dqq">
@@ -91,7 +90,7 @@
             <objects>
                 <viewController id="23d-Wt-xVT" customClass="SearchResultViewController" customModule="GourmetSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tCJ-KA-1cB">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Xn-gm-7y3">
