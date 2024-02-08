@@ -126,8 +126,12 @@
 			children = (
 				34719DE52B6C815800F45425 /* MapViewController.swift */,
 				3450F9122B6E863100143473 /* ResultViewController.swift */,
+<<<<<<< Updated upstream
 				344E2B4D2B748FBE00BEA7F4 /* ShopInfoViewController.swift */,
 				344E2B4B2B748FB000BEA7F4 /* SearchResultViewController.swift */,
+=======
+				348B58912B6FCD4700A0D6D7 /* ShopInfoViewController.swift */,
+>>>>>>> Stashed changes
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -208,11 +212,18 @@
 				34719DE22B6C815800F45425 /* AppDelegate.swift in Sources */,
 				349D792D2B6DF4D200C63469 /* SortRadiusSliderModel.swift in Sources */,
 				3450F9152B6E92E100143473 /* GetStoreDataModel.swift in Sources */,
+<<<<<<< Updated upstream
 				344E2B502B748FCC00BEA7F4 /* APIKey.swift in Sources */,
 				34719DE42B6C815800F45425 /* SceneDelegate.swift in Sources */,
 				341FA5852B6F307900E315FB /* StoreDataModel.swift in Sources */,
 				344E2B4C2B748FB000BEA7F4 /* SearchResultViewController.swift in Sources */,
 				344E2B4E2B748FBE00BEA7F4 /* ShopInfoViewController.swift in Sources */,
+=======
+				348B58922B6FCD4700A0D6D7 /* ShopInfoViewController.swift in Sources */,
+				34719DE42B6C815800F45425 /* SceneDelegate.swift in Sources */,
+				341FA5852B6F307900E315FB /* StoreDataModel.swift in Sources */,
+				3462F6802B735F2F00E0B334 /* APIKey.swift in Sources */,
+>>>>>>> Stashed changes
 				3450F9132B6E863100143473 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
