@@ -21,6 +21,8 @@
 		34719DF72B6C953B00F45425 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34719DF62B6C953B00F45425 /* MapKit.framework */; };
 		349D792D2B6DF4D200C63469 /* SortRadiusSliderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D792C2B6DF4D200C63469 /* SortRadiusSliderModel.swift */; };
 		34CCF6B62B74988D00930CED /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CCF6B52B74988D00930CED /* APIKey.swift */; };
+		34CCF6BC2B74F03B00930CED /* ResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CCF6BB2B74F03B00930CED /* ResultViewCell.swift */; };
+		34CCF6BE2B74FD2500930CED /* ChangeImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CCF6BD2B74FD2500930CED /* ChangeImageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		34719DF62B6C953B00F45425 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		349D792C2B6DF4D200C63469 /* SortRadiusSliderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortRadiusSliderModel.swift; sourceTree = "<group>"; };
 		34CCF6B52B74988D00930CED /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		34CCF6BB2B74F03B00930CED /* ResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewCell.swift; sourceTree = "<group>"; };
+		34CCF6BD2B74FD2500930CED /* ChangeImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeImageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				349D792C2B6DF4D200C63469 /* SortRadiusSliderModel.swift */,
+				34CCF6BD2B74FD2500930CED /* ChangeImageModel.swift */,
 				341FA5842B6F307900E315FB /* StoreDataModel.swift */,
 				34CCF6B52B74988D00930CED /* APIKey.swift */,
 				3450F9142B6E92E100143473 /* GetStoreDataModel.swift */,
@@ -110,6 +115,7 @@
 			children = (
 				34719DE72B6C815800F45425 /* Main.storyboard */,
 				34719DEC2B6C815900F45425 /* LaunchScreen.storyboard */,
+				34CCF6BB2B74F03B00930CED /* ResultViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,7 +207,9 @@
 				349D792D2B6DF4D200C63469 /* SortRadiusSliderModel.swift in Sources */,
 				3450F9152B6E92E100143473 /* GetStoreDataModel.swift in Sources */,
 				34CCF6B62B74988D00930CED /* APIKey.swift in Sources */,
+				34CCF6BC2B74F03B00930CED /* ResultViewCell.swift in Sources */,
 				34719DE42B6C815800F45425 /* SceneDelegate.swift in Sources */,
+				34CCF6BE2B74FD2500930CED /* ChangeImageModel.swift in Sources */,
 				341FA5852B6F307900E315FB /* StoreDataModel.swift in Sources */,
 				344E2B4E2B748FBE00BEA7F4 /* ShopInfoViewController.swift in Sources */,
 				3450F9132B6E863100143473 /* ResultViewController.swift in Sources */,

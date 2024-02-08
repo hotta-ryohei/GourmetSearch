@@ -54,16 +54,20 @@ class MapViewController: UIViewController {
     @IBAction func openSearchResultView(_ sender: UIButton) {
         let getStoreDataModel = GetStoreDataModel()
         let sortRadiusSliderModel = SortRadiusSliderModel()
+        let changeImageModel = ChangeImageModel()
         // getStoreDataの引数を生成
         let rangeInt = sortRadiusSliderModel.sortIntRadiusSlider(radius: searchRadius)
         let myLatitude = Double((locationManager.location?.coordinate.latitude)!)
         let myLongitude = Double((locationManager.location?.coordinate.longitude)!)
+        // TODO: エラーハンドリングをする
         Task {
             do {
                 // データを取得
                 let storeDatas = try await getStoreDataModel.getStoreData(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
+                // 画像データを変換
+                let imageDatas = await changeImageModel.changeImageModel(shops: storeDatas.results.shop)
                 // リザルトビューを開く処理へ
-                self.openResultView(storeDatas: storeDatas)
+                self.openResultView(storeDatas: storeDatas, imageDatas: imageDatas)
 
             } catch {
                 print(error)
@@ -72,15 +76,15 @@ class MapViewController: UIViewController {
     }
     
     // ResultViewを開く処理
-    func openResultView(storeDatas: StoreData) {
+    func openResultView(storeDatas: StoreData, imageDatas: [UIImage]) {
         // ResultViewControllerの関数に合った形に変換
         let sendShopInfo = storeDatas.results.shop
         // ResultViewControllerを取得
         let storyboard = self.storyboard!
         let resultView = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
         // ResultViewControllerにデータを渡す
-        resultView.shopsNumber = sendShopInfo.count
-        resultView.shops = sendShopInfo
+        resultView.shops = sendShopInfo  
+        resultView.ImageData = imageDatas
         navigationController?.pushViewController(resultView, animated: true)
     }
 }

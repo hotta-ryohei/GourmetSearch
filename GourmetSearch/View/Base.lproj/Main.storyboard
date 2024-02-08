@@ -35,7 +35,7 @@
                                 </state>
                                 <buttonConfiguration key="configuration" style="filled" title="お店を検索"/>
                                 <connections>
-                                    <action selector="openSearchResultView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7YD-gE-7aG"/>
+                                    <action selector="openSearchResultView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hrp-jZ-5nY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,7 +58,6 @@
                     <connections>
                         <outlet property="mapView" destination="560-QI-eX4" id="S6r-cL-2zB"/>
                         <outlet property="radiusSlider" destination="72P-oR-R1N" id="48y-BR-Hyv"/>
-                        <outlet property="searchStore" destination="PYm-Ny-MHz" id="PSZ-zH-RxA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -77,13 +76,64 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                 <color key="backgroundColor" red="0.94559663534164429" green="0.84770214557647705" blue="0.77385419607162476" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultViewCell" rowHeight="100" id="K3v-D0-1Lj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultViewCell" id="qef-Vn-DQV" customClass="ResultViewCell" customModule="GourmetSearch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K3v-D0-1Lj" id="fA9-KE-R3L">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qef-Vn-DQV" id="CcB-js-HwV">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3xv-c2-hG7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvF-cg-hTq">
+                                                    <rect key="frame" x="175" y="9" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-ME-DHR">
+                                                    <rect key="frame" x="126" y="10" width="37" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="場所:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJB-Rs-W64">
+                                                    <rect key="frame" x="126" y="67" width="37" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgC-cd-1Is">
+                                                    <rect key="frame" x="175" y="66" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QJB-Rs-W64" firstAttribute="top" secondItem="TEY-ME-DHR" secondAttribute="bottom" constant="36" id="6eb-5v-oWO"/>
+                                                <constraint firstItem="kgC-cd-1Is" firstAttribute="leading" secondItem="QJB-Rs-W64" secondAttribute="trailing" constant="12" id="7Up-qw-4ff"/>
+                                                <constraint firstItem="QJB-Rs-W64" firstAttribute="leading" secondItem="TEY-ME-DHR" secondAttribute="leading" id="CPf-Qo-H3N"/>
+                                                <constraint firstItem="kgC-cd-1Is" firstAttribute="top" secondItem="HvF-cg-hTq" secondAttribute="bottom" constant="36" id="DUs-01-0lR"/>
+                                                <constraint firstItem="HvF-cg-hTq" firstAttribute="leading" secondItem="kgC-cd-1Is" secondAttribute="leading" id="L6e-oJ-N64"/>
+                                                <constraint firstItem="3xv-c2-hG7" firstAttribute="centerY" secondItem="CcB-js-HwV" secondAttribute="centerY" id="NcG-gb-fwK"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kgC-cd-1Is" secondAttribute="trailing" constant="20" symbolic="YES" id="Pps-g8-6Fw"/>
+                                                <constraint firstItem="HvF-cg-hTq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TEY-ME-DHR" secondAttribute="trailing" constant="8" symbolic="YES" id="X3Y-li-yp5"/>
+                                                <constraint firstItem="3xv-c2-hG7" firstAttribute="leading" secondItem="CcB-js-HwV" secondAttribute="leadingMargin" constant="-20" id="YXm-eX-WGz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="QJB-Rs-W64" secondAttribute="bottom" constant="1" id="g6q-F6-fnX"/>
+                                                <constraint firstItem="3xv-c2-hG7" firstAttribute="top" secondItem="CcB-js-HwV" secondAttribute="topMargin" constant="-11" id="gGe-ME-CFq"/>
+                                                <constraint firstItem="HvF-cg-hTq" firstAttribute="leading" secondItem="3xv-c2-hG7" secondAttribute="trailing" constant="75" id="nNU-MC-Ecs"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HvF-cg-hTq" secondAttribute="trailing" constant="20" symbolic="YES" id="nab-L5-wEa"/>
+                                                <constraint firstItem="HvF-cg-hTq" firstAttribute="leading" secondItem="CcB-js-HwV" secondAttribute="leading" constant="175" id="orn-qA-Vi7"/>
+                                                <constraint firstItem="HvF-cg-hTq" firstAttribute="top" secondItem="CcB-js-HwV" secondAttribute="topMargin" constant="-2" id="v0L-86-6IK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="address" destination="kgC-cd-1Is" id="kCe-tt-n8L"/>
+                                            <outlet property="logoImage" destination="3xv-c2-hG7" id="Qkp-N4-3Qj"/>
+                                            <outlet property="name" destination="HvF-cg-hTq" id="UGB-Jq-PGa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -105,8 +155,7 @@
                         <barButtonItem key="backBarButtonItem" title="戻る" id="mFu-P3-sA3"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="resultView" destination="6Xn-gm-7y3" id="FMR-df-gsh"/>
-                        <outlet property="view" destination="6Xn-gm-7y3" id="x4N-BR-xq1"/>
+                        <outlet property="resultView" destination="6Xn-gm-7y3" id="Lkz-rT-hN5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Noy-Bd-ZjP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

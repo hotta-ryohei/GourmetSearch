@@ -11,33 +11,14 @@ class ResultViewController: UIViewController{
     
     @IBOutlet weak var resultView: UITableView!
     
-    var shopsNumber: Int = 0    // 検索結果の件数
     var shops: [Shop] = []  // StoreDataのShop情報を入れる変数
     var ImageData: [UIImage] = []   // テーブルビュー内の写真をUIImage型で保存しておく変数
     
     override func viewDidLoad() {
         super.viewDidLoad()
         resultView.delegate = self
-        resultView.delegate = self
-        
-        
-        // バックグラウンドで取得したURLをUIImageに変換
-        DispatchQueue.global(qos: .userInteractive) .async {
-            var ImageDatas: [UIImage] = []
-            var numberInt: Int = 0
-            // TODO: URLに変換できなかった際のエラー処理を追記する必要あり
-            for _ in self.shops {
-                let urls = self.shops[numberInt].photo.mobile.l
-                numberInt += 1
-                if let url = URL(string: urls) {
-                    if let data = try? Data(contentsOf: url) {
-                        let UIImageData: UIImage = UIImage(data: data) ?? UIImage()
-                            ImageDatas.append(UIImageData)
-                    }
-                }
-            }
-            self.ImageData = ImageDatas
-        }
+        resultView.dataSource = self
+        resultView.register(UINib(nibName: "ResultViewCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "resultViewCell")
         
     }
 
@@ -46,16 +27,21 @@ class ResultViewController: UIViewController{
 extension ResultViewController: UITableViewDataSource,UITableViewDelegate {
     // 検索件数を設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shopsNumber
+        return shops.count
     }
     
     // セルのデザインを設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = resultView.dequeueReusableCell(withIdentifier: "ResultViewCell", for: indexPath)
-         cell.textLabel!.text = shops[indexPath.row].name
         
+        guard let cell = resultView.dequeueReusableCell(withIdentifier: "resultViewCell", for: indexPath) as? ResultViewCell else {
+            fatalError("cellidentifierError")
+        }
+        cell.name.text = shops[indexPath.row].name
+        cell.address.text = shops[indexPath.row].address
+        cell.logoImage.image = ImageData[indexPath.row]
         return cell
     }
+
     
     // タップしたセル番号を渡し、ShopInfoViewを開く処理へ
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
