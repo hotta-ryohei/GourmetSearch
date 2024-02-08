@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		341FA5852B6F307900E315FB /* StoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FA5842B6F307900E315FB /* StoreDataModel.swift */; };
-		3450F9132B6E863100143473 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3450F9122B6E863100143473 /* SearchResultViewController.swift */; };
+		3450F9132B6E863100143473 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3450F9122B6E863100143473 /* ResultViewController.swift */; };
 		3450F9152B6E92E100143473 /* GetStoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3450F9142B6E92E100143473 /* GetStoreDataModel.swift */; };
 		3450F9192B6E94F000143473 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3450F9182B6E94F000143473 /* .gitignore */; };
 		34719DE22B6C815800F45425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34719DE12B6C815800F45425 /* AppDelegate.swift */; };
@@ -23,7 +23,7 @@
 
 /* Begin PBXFileReference section */
 		341FA5842B6F307900E315FB /* StoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataModel.swift; sourceTree = "<group>"; };
-		3450F9122B6E863100143473 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		3450F9122B6E863100143473 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		3450F9142B6E92E100143473 /* GetStoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStoreDataModel.swift; sourceTree = "<group>"; };
 		3450F9182B6E94F000143473 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		34719DDE2B6C815800F45425 /* GourmetSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				34719DE52B6C815800F45425 /* MapViewController.swift */,
-				3450F9122B6E863100143473 /* SearchResultViewController.swift */,
+				3450F9122B6E863100143473 /* ResultViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -196,7 +196,7 @@
 				3450F9152B6E92E100143473 /* GetStoreDataModel.swift in Sources */,
 				34719DE42B6C815800F45425 /* SceneDelegate.swift in Sources */,
 				341FA5852B6F307900E315FB /* StoreDataModel.swift in Sources */,
-				3450F9132B6E863100143473 /* SearchResultViewController.swift in Sources */,
+				3450F9132B6E863100143473 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
