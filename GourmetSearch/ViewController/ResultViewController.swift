@@ -36,7 +36,6 @@ class ResultViewController: UIViewController{
                     }
                 }
             }
-            
             self.ImageData = ImageDatas
         }
         

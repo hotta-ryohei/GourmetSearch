@@ -9,9 +9,10 @@ import UIKit
 
 class ShopInfoViewController: UIViewController {
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var access: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var url: UIButton!
@@ -21,12 +22,11 @@ class ShopInfoViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-
-        name.text = sentInfo.name
-        address.text = sentInfo.address
-        access.text = sentInfo.mobile_access
+        name.text = "名前: \(sentInfo.name)"
+        address.text = "住所: \(sentInfo.address)"
+        access.text = "アクセス: \(sentInfo.mobile_access)"
         url.setTitle(sentInfo.urls.pc, for: .normal)
-        time.text = sentInfo.open
+        time.text = "営業時間: \(sentInfo.open)"
         imageView.image = sentPhoto
     }
     
