@@ -51,11 +51,9 @@ class MapViewController: UIViewController {
         }
     }
     
-    // ボタンを押されたらGetStoreDataを呼び出す
-    @IBAction func CallGetStoreData(_ sender: UIButton) {
+    @IBAction func openSearchResultView(_ sender: UIButton) {
         let getStoreDataModel = GetStoreDataModel()
         let sortRadiusSliderModel = SortRadiusSliderModel()
-        
         // getStoreDataの引数を生成
         let rangeInt = sortRadiusSliderModel.sortIntRadiusSlider(radius: searchRadius)
         let myLatitude = Double((locationManager.location?.coordinate.latitude)!)
@@ -64,28 +62,26 @@ class MapViewController: UIViewController {
             do {
                 // データを取得
                 let storeDatas = try await getStoreDataModel.getStoreData(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
-                // サーチリザルトビューを開く処理へ
+                // リザルトビューを開く処理へ
                 self.openResultView(storeDatas: storeDatas)
+
             } catch {
                 print(error)
             }
         }
     }
     
-    // サーチリザルトビューを開く処理
+    // ResultViewを開く処理
     func openResultView(storeDatas: StoreData) {
         // ResultViewControllerの関数に合った形に変換
-        let sendShopsNumber = storeDatas.results.results_available
         let sendShopInfo = storeDatas.results.shop
-        
+        // ResultViewControllerを取得
         let storyboard = self.storyboard!
-        let ResultView = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
-        
+        let resultView = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
         // ResultViewControllerにデータを渡す
-        ResultView.shopsNumber = sendShopsNumber
-        ResultView.shops = sendShopInfo
-        
-        navigationController?.pushViewController(ResultView, animated: true)
+        resultView.shopsNumber = sendShopInfo.count
+        resultView.shops = sendShopInfo
+        navigationController?.pushViewController(resultView, animated: true)
     }
 }
 
@@ -151,5 +147,4 @@ extension MapViewController: MKMapViewDelegate {
         mapView.removeOverlays(mapView.overlays)
         mapView.addOverlay(searchCircle)
     }
-    
 }

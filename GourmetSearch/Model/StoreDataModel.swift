@@ -13,7 +13,6 @@ struct StoreData: Decodable {
 }
 
 struct Results: Decodable {
-    let results_available: Int
     let shop: [Shop]
 }
 
@@ -21,10 +20,15 @@ struct Shop: Decodable {
     let name: String
     let address: String
     let logo_image: String
-    let access: String
+    let mobile_access: String
+    let urls: Url
     let photo: Photo
+    let open: String
 }
 
+struct Url:Decodable {
+    let pc: String
+}
 struct Photo: Decodable {
     let mobile: PhotoURL
 }
