@@ -22,11 +22,11 @@ class ShopInfoViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        name.text = "名前: \(sentInfo.name)"
-        address.text = "住所: \(sentInfo.address)"
-        access.text = "アクセス: \(sentInfo.mobile_access)"
+        name.text = sentInfo.name
+        address.text = sentInfo.address
+        access.text = sentInfo.mobile_access
         url.setTitle(sentInfo.urls.pc, for: .normal)
-        time.text = "営業時間: \(sentInfo.open)"
+        time.text = sentInfo.open
         imageView.image = sentPhoto
     }
     
