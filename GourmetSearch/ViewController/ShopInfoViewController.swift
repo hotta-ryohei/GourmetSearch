@@ -13,8 +13,8 @@ class ShopInfoViewController: UIViewController {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var access: UILabel!
-    @IBOutlet weak var address: UILabel!
     @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var address: UILabel!
     @IBOutlet weak var url: UIButton!
     
     var sentInfo: Shop = Shop(name: "", address: "", logo_image: "", mobile_access: "", urls: GourmetSearch.Url(pc: ""), photo: GourmetSearch.Photo(mobile: GourmetSearch.PhotoURL(l: "", s: "")), open: "")  // 初期値を設定
@@ -22,6 +22,7 @@ class ShopInfoViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        
         name.text = sentInfo.name
         address.text = sentInfo.address
         access.text = sentInfo.mobile_access

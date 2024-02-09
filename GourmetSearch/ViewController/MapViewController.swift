@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import KRProgressHUD
 
 class MapViewController: UIViewController {
     
@@ -52,9 +53,13 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func openSearchResultView(_ sender: UIButton) {
+        // ロード開始
+        KRProgressHUD.show()
+        
         let getStoreDataModel = GetStoreDataModel()
         let sortRadiusSliderModel = SortRadiusSliderModel()
         let changeImageModel = ChangeImageModel()
+
         // getStoreDataの引数を生成
         let rangeInt = sortRadiusSliderModel.sortIntRadiusSlider(radius: searchRadius)
         let myLatitude = Double((locationManager.location?.coordinate.latitude)!)
@@ -62,11 +67,15 @@ class MapViewController: UIViewController {
         // TODO: エラーハンドリングをする
         Task {
             do {
+
                 // データを取得
                 let storeDatas = try await getStoreDataModel.getStoreData(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
+                
                 // 画像データを変換
                 let imageDatas = await changeImageModel.changeImageModel(shops: storeDatas.results.shop)
+                
                 // リザルトビューを開く処理へ
+                KRProgressHUD.dismiss() // ロード終了
                 self.openResultView(storeDatas: storeDatas, imageDatas: imageDatas)
 
             } catch {

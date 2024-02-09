@@ -23,6 +23,8 @@
 		34CCF6B62B74988D00930CED /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CCF6B52B74988D00930CED /* APIKey.swift */; };
 		34CCF6BC2B74F03B00930CED /* ResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CCF6BB2B74F03B00930CED /* ResultViewCell.swift */; };
 		34CCF6BE2B74FD2500930CED /* ChangeImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CCF6BD2B74FD2500930CED /* ChangeImageModel.swift */; };
+		34CCF6C12B75262600930CED /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 34CCF6C02B75262600930CED /* PKHUD */; };
+		34CCF6C42B75270800930CED /* KRProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 34CCF6C32B75270800930CED /* KRProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +53,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34CCF6C42B75270800930CED /* KRProgressHUD in Frameworks */,
 				34719DF72B6C953B00F45425 /* MapKit.framework in Frameworks */,
+				34CCF6C12B75262600930CED /* PKHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +150,10 @@
 			dependencies = (
 			);
 			name = GourmetSearch;
+			packageProductDependencies = (
+				34CCF6C02B75262600930CED /* PKHUD */,
+				34CCF6C32B75270800930CED /* KRProgressHUD */,
+			);
 			productName = GourmetSearch;
 			productReference = 34719DDE2B6C815800F45425 /* GourmetSearch.app */;
 			productType = "com.apple.product-type.application";
@@ -174,6 +182,10 @@
 				Base,
 			);
 			mainGroup = 34719DD52B6C815800F45425;
+			packageReferences = (
+				34CCF6BF2B75262600930CED /* XCRemoteSwiftPackageReference "PKHUD" */,
+				34CCF6C22B75270800930CED /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
+			);
 			productRefGroup = 34719DDF2B6C815800F45425 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -435,6 +447,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		34CCF6BF2B75262600930CED /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+		34CCF6C22B75270800930CED /* XCRemoteSwiftPackageReference "KRProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krimpedance/KRProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		34CCF6C02B75262600930CED /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34CCF6BF2B75262600930CED /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
+		};
+		34CCF6C32B75270800930CED /* KRProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34CCF6C22B75270800930CED /* XCRemoteSwiftPackageReference "KRProgressHUD" */;
+			productName = KRProgressHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 34719DD62B6C815800F45425 /* Project object */;
 }

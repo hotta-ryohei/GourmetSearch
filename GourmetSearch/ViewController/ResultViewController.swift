@@ -18,15 +18,15 @@ class ResultViewController: UIViewController{
         super.viewDidLoad()
         resultView.delegate = self
         resultView.dataSource = self
-        resultView.register(UINib(nibName: "ResultViewCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "resultViewCell")
         
     }
-
+    
 }
 
 extension ResultViewController: UITableViewDataSource,UITableViewDelegate {
     // 検索件数を設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return shops.count
     }
     
@@ -36,12 +36,13 @@ extension ResultViewController: UITableViewDataSource,UITableViewDelegate {
         guard let cell = resultView.dequeueReusableCell(withIdentifier: "resultViewCell", for: indexPath) as? ResultViewCell else {
             fatalError("cellidentifierError")
         }
+        
         cell.name.text = shops[indexPath.row].name
         cell.address.text = shops[indexPath.row].address
         cell.logoImage.image = ImageData[indexPath.row]
         return cell
     }
-
+    
     
     // タップしたセル番号を渡し、ShopInfoViewを開く処理へ
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -56,12 +57,7 @@ extension ResultViewController: UITableViewDataSource,UITableViewDelegate {
         let storyboard = self.storyboard!
         let shopInfoView = storyboard.instantiateViewController(withIdentifier: "ShopInfoViewController") as! ShopInfoViewController
         shopInfoView.sentInfo = shops[cellNumber]
-        // TODO: ImageDataに情報を変換する処理を終えてから実行するようにする
-        if ImageData .isEmpty {
-            print("ImageDataが空白です")
-        } else {
-            shopInfoView.sentPhoto = ImageData[cellNumber]
-        }
+        shopInfoView.sentPhoto = ImageData[cellNumber]
         navigationController?.pushViewController(shopInfoView, animated: true)
     }
 }
