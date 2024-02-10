@@ -26,7 +26,7 @@ class ShopInfoViewController: UIViewController {
         name.text = sentInfo.name
         address.text = sentInfo.address
         access.text = sentInfo.mobile_access
-        url.setTitle(sentInfo.urls.pc, for: .normal)
+        url.setTitle("Webサイトはこちら", for: .normal)
         time.text = sentInfo.open
         imageView.image = sentPhoto
     }
