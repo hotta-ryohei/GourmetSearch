@@ -19,11 +19,11 @@ struct Results: Decodable {
 struct Shop: Decodable {
     let name: String
     let address: String
-    let logo_image: String
     let mobile_access: String
+    let open: String
     let urls: Url
     let photo: Photo
-    let open: String
+    let genre: Genre
 }
 
 struct Url:Decodable {
@@ -36,4 +36,8 @@ struct Photo: Decodable {
 struct PhotoURL: Decodable {
     let l: String
     let s: String
+}
+
+struct Genre: Decodable {
+    let name: String
 }

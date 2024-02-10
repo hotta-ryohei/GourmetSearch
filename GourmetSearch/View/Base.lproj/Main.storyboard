@@ -35,7 +35,7 @@
                                 </state>
                                 <buttonConfiguration key="configuration" style="filled" title="お店を検索"/>
                                 <connections>
-                                    <action selector="openSearchResultView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hrp-jZ-5nY"/>
+                                    <action selector="openResultView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w7M-OD-dT3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,6 +58,7 @@
                     <connections>
                         <outlet property="mapView" destination="560-QI-eX4" id="S6r-cL-2zB"/>
                         <outlet property="radiusSlider" destination="72P-oR-R1N" id="48y-BR-Hyv"/>
+                        <outlet property="searchStore" destination="PYm-Ny-MHz" id="DL6-Qm-QLG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

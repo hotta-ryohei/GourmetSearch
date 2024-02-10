@@ -17,7 +17,7 @@ class ShopInfoViewController: UIViewController {
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var url: UIButton!
     
-    var sentInfo: Shop = Shop(name: "", address: "", logo_image: "", mobile_access: "", urls: GourmetSearch.Url(pc: ""), photo: GourmetSearch.Photo(mobile: GourmetSearch.PhotoURL(l: "", s: "")), open: "")  // 初期値を設定
+    var sentInfo: Shop = Shop(name: "", address: "", mobile_access: "", open: "", urls: Url(pc: ""), photo: Photo(mobile: PhotoURL(l: "", s: "")), genre: Genre(name: ""))  // 初期値を設定
     var sentPhoto: UIImage = UIImage()  // ImageViewの写真を入れる変数
     
     override func viewDidLoad(){

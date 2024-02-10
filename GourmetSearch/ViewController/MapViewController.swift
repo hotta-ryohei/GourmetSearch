@@ -52,7 +52,7 @@ class MapViewController: UIViewController {
         }
     }
     
-    @IBAction func openSearchResultView(_ sender: UIButton) {
+    @IBAction func openResultView(_ sender: UIButton) {
         // ロード開始
         KRProgressHUD.show()
         
@@ -67,21 +67,33 @@ class MapViewController: UIViewController {
         // TODO: エラーハンドリングをする
         Task {
             do {
-
                 // データを取得
                 let storeDatas = try await getStoreDataModel.getStoreData(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
-                
                 // 画像データを変換
                 let imageDatas = await changeImageModel.changeImageModel(shops: storeDatas.results.shop)
-                
                 // リザルトビューを開く処理へ
                 KRProgressHUD.dismiss() // ロード終了
                 self.openResultView(storeDatas: storeDatas, imageDatas: imageDatas)
 
             } catch {
+                resultViewErrorAlert()
                 print(error)
             }
         }
+    }
+    
+    func resultViewErrorAlert() {
+        let alertController = UIAlertController(
+            title: "データを取得できませんでした。",
+            message: "もう一度試してください。",
+            preferredStyle: .alert
+        )
+        
+        let closeAlert = UIAlertAction(title: "閉じる", style: .cancel, handler: nil)
+        
+        alertController.addAction(closeAlert)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     // ResultViewを開く処理
@@ -96,6 +108,7 @@ class MapViewController: UIViewController {
         resultView.ImageData = imageDatas
         navigationController?.pushViewController(resultView, animated: true)
     }
+    
 }
 
 
