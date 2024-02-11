@@ -152,7 +152,7 @@
             </objects>
             <point key="canvasLocation" x="4173" y="-88"/>
         </scene>
-        <!--Category View Controller-->
+        <!--カテゴリ一覧-->
         <scene sceneID="JXk-wv-HiI">
             <objects>
                 <viewController id="vb0-ZM-GPJ" customClass="CategoryViewController" customModule="GourmetSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -160,25 +160,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="categorySearch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qz-eo-lRs">
-                                <rect key="frame" x="136" y="416" width="121" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ns9-e9-hQ4">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryViewCell" rowHeight="100" id="gle-aU-S7L" customClass="CategoryViewCell" customModule="GourmetSearch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gle-aU-S7L" id="WDe-TC-hTo">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="8DF-yf-vkY">
+                                                    <rect key="frame" x="10" y="5" width="373" height="90"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J3O-Yi-akU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="90" id="77X-EH-Pdd"/>
+                                                                <constraint firstAttribute="width" constant="100" id="JAU-Ro-Yel"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-RR-IZV">
+                                                            <rect key="frame" x="123" y="0.0" width="250" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="240" id="Du1-Ci-kyj"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="90" id="vb2-4r-kvI"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8DF-yf-vkY" firstAttribute="top" secondItem="WDe-TC-hTo" secondAttribute="top" constant="5" id="avb-aI-WTM"/>
+                                                <constraint firstAttribute="bottom" secondItem="8DF-yf-vkY" secondAttribute="bottom" constant="5" id="gCf-gm-jUL"/>
+                                                <constraint firstItem="8DF-yf-vkY" firstAttribute="centerY" secondItem="WDe-TC-hTo" secondAttribute="centerY" id="mp7-JM-Kci"/>
+                                                <constraint firstAttribute="trailing" secondItem="8DF-yf-vkY" secondAttribute="trailing" constant="10" id="vjX-kX-8P1"/>
+                                                <constraint firstItem="8DF-yf-vkY" firstAttribute="leading" secondItem="WDe-TC-hTo" secondAttribute="leading" constant="10" id="weN-O3-EtI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryImage" destination="J3O-Yi-akU" id="u6Q-5L-S5I"/>
+                                            <outlet property="categoryName" destination="j6c-RR-IZV" id="i0s-1J-mev"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vb0-ZM-GPJ" id="Ojc-xd-Djk"/>
+                                    <outlet property="delegate" destination="vb0-ZM-GPJ" id="gnS-J7-xFa"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RxA-Ma-fue"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.69019607839999997" green="0.90980392160000001" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ns9-e9-hQ4" firstAttribute="top" secondItem="RxA-Ma-fue" secondAttribute="top" id="uyE-Df-5c9"/>
+                            <constraint firstAttribute="bottom" secondItem="Ns9-e9-hQ4" secondAttribute="bottom" id="wFL-to-9I7"/>
+                            <constraint firstItem="Ns9-e9-hQ4" firstAttribute="trailing" secondItem="RxA-Ma-fue" secondAttribute="trailing" id="xiU-ar-aEH"/>
+                            <constraint firstItem="Ns9-e9-hQ4" firstAttribute="leading" secondItem="RxA-Ma-fue" secondAttribute="leading" id="xvG-3C-0jh"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mtY-aw-PwJ"/>
+                    <navigationItem key="navigationItem" title="カテゴリ一覧" id="mtY-aw-PwJ"/>
                     <connections>
-                        <outlet property="categoryView" destination="WMU-Xk-KaR" id="bcb-Km-k5T"/>
+                        <outlet property="categoryView" destination="Ns9-e9-hQ4" id="hPn-dn-Ukv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCs-KD-XC3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3166" y="605"/>
+            <point key="canvasLocation" x="3165.6488549618321" y="604.92957746478874"/>
         </scene>
         <!--検索結果-->
         <scene sceneID="Awr-oM-SQD">
