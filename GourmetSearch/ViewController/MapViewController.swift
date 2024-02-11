@@ -59,7 +59,7 @@ class MapViewController: UIViewController {
         let getStoreDataModel = GetStoreDataModel()
         let sortRadiusSliderModel = SortRadiusSliderModel()
         let changeImageModel = ChangeImageModel()
-
+        
         // getStoreDataの引数を生成
         let rangeInt = sortRadiusSliderModel.sortIntRadiusSlider(radius: searchRadius)
         let myLatitude = Double((locationManager.location?.coordinate.latitude)!)
@@ -74,7 +74,7 @@ class MapViewController: UIViewController {
                 // リザルトビューを開く処理へ
                 KRProgressHUD.dismiss() // ロード終了
                 self.openResultView(storeDatas: storeDatas, imageDatas: imageDatas)
-
+                
             } catch {
                 resultViewErrorAlert()
                 print(error)
@@ -102,11 +102,18 @@ class MapViewController: UIViewController {
         let sendShopInfo = storeDatas.results.shop
         // ResultViewControllerを取得
         let storyboard = self.storyboard!
-        let resultView = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
-        // ResultViewControllerにデータを渡す
-        resultView.shops = sendShopInfo  
-        resultView.ImageData = imageDatas
-        navigationController?.pushViewController(resultView, animated: true)
+        
+        // 付近のお店の有無で処理を変更
+        if imageDatas .isEmpty {
+            let resultView = storyboard.instantiateViewController(withIdentifier: "ZeroResultViewController") as! ZeroResultViewController
+            navigationController?.pushViewController(resultView, animated: true)
+        } else {
+            let resultView = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+            // ResultViewControllerにデータを渡す
+            resultView.shops = sendShopInfo
+            resultView.ImageData = imageDatas
+            navigationController?.pushViewController(resultView, animated: true)
+        }
     }
     
 }

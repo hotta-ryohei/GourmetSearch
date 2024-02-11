@@ -151,6 +151,49 @@
             </objects>
             <point key="canvasLocation" x="3107.6335877862593" y="-88.028169014084511"/>
         </scene>
+        <!--検索結果-->
+        <scene sceneID="Awr-oM-SQD">
+            <objects>
+                <viewController storyboardIdentifier="ZeroResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RMk-TK-cic" customClass="ZeroResultViewController" customModule="GourmetSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hcw-Dz-9a0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="810-Au-byY">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付近にお店が見つかりませんでした" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hD-43-PVT">
+                                        <rect key="frame" x="37.666666666666657" y="200" width="318" height="20"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="4hD-43-PVT" firstAttribute="centerX" secondItem="810-Au-byY" secondAttribute="centerX" id="3hD-tB-37k"/>
+                                    <constraint firstItem="4hD-43-PVT" firstAttribute="top" secondItem="810-Au-byY" secondAttribute="top" constant="200" id="WJN-wN-v46"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uxM-Ju-SYc"/>
+                        <color key="backgroundColor" red="0.69019607839999997" green="0.90980392160000001" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="810-Au-byY" firstAttribute="leading" secondItem="Hcw-Dz-9a0" secondAttribute="leading" id="4Lj-xB-0oU"/>
+                            <constraint firstItem="810-Au-byY" firstAttribute="top" secondItem="uxM-Ju-SYc" secondAttribute="top" id="7Jn-IH-5y0"/>
+                            <constraint firstAttribute="bottom" secondItem="810-Au-byY" secondAttribute="bottom" id="EuA-xE-WA5"/>
+                            <constraint firstAttribute="trailing" secondItem="810-Au-byY" secondAttribute="trailing" id="Ya9-oZ-2w5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="検索結果" leftItemsSupplementBackButton="YES" id="WNk-uz-PBF"/>
+                    <connections>
+                        <outlet property="zeroResultViewController" destination="Hcw-Dz-9a0" id="ZOn-A5-vfa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WO5-EC-mIn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3107.6335877862593" y="607.04225352112678"/>
+        </scene>
         <!--店舗詳細-->
         <scene sceneID="Mn8-OE-IXJ">
             <objects>
