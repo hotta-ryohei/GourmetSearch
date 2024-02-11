@@ -14,6 +14,7 @@ class ShopInfoViewController: UIViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var access: UILabel!
     @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var genre: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var url: UIButton!
     
@@ -24,10 +25,12 @@ class ShopInfoViewController: UIViewController {
         super.viewDidLoad()
         
         name.text = sentInfo.name
-        address.text = sentInfo.address
         access.text = sentInfo.mobile_access
-        url.setTitle("Webサイトはこちら", for: .normal)
         time.text = sentInfo.open
+        genre.text = sentInfo.genre.name
+        address.text = sentInfo.address
+        url.setTitle("Webサイトはこちら", for: .normal)
+
         imageView.image = sentPhoto
     }
     
