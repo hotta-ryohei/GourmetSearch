@@ -152,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="4173" y="-88"/>
         </scene>
-        <!--View Controller-->
+        <!--Category View Controller-->
         <scene sceneID="JXk-wv-HiI">
             <objects>
-                <viewController id="vb0-ZM-GPJ" sceneMemberID="viewController">
+                <viewController id="vb0-ZM-GPJ" customClass="CategoryViewController" customModule="GourmetSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WMU-Xk-KaR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,6 +172,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="mtY-aw-PwJ"/>
+                    <connections>
+                        <outlet property="categoryView" destination="WMU-Xk-KaR" id="bcb-Km-k5T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCs-KD-XC3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

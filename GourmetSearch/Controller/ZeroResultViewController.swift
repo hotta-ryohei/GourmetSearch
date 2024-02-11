@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 class ZeroResultViewController: UIViewController{
     
@@ -14,7 +15,5 @@ class ZeroResultViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
 }

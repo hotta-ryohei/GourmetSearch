@@ -20,14 +20,11 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+
         locationManager = CLLocationManager()
-        locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization() // 位置情報の許可を呼び出す
         
         mapView.userTrackingMode = .follow  // 地図の中心を現在地にするために初期値を追跡に設定
-        mapView.delegate = self
         let searchCircle: MKCircle = MKCircle(center:mapView.region.center, radius: CLLocationDistance(searchRadius))   // 現在地の周りに初期値である1000mの円を設定
         mapView.addOverlay(searchCircle)    // 円をマップに追加
         navigationItem.title = String("検索範囲: \(searchRadius)m") // ナビゲーションビューのtitleに検索範囲を表示

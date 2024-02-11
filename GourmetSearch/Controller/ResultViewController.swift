@@ -16,8 +16,6 @@ class ResultViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultView.delegate = self
-        resultView.dataSource = self
         
     }
     
