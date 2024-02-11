@@ -23,7 +23,8 @@ class MapViewController: UIViewController {
 
         locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization() // 位置情報の許可を呼び出す
-        
+        locationManager.delegate = self
+        mapView.delegate = self
         mapView.userTrackingMode = .follow  // 地図の中心を現在地にするために初期値を追跡に設定
         let searchCircle: MKCircle = MKCircle(center:mapView.region.center, radius: CLLocationDistance(searchRadius))   // 現在地の周りに初期値である1000mの円を設定
         mapView.addOverlay(searchCircle)    // 円をマップに追加
@@ -61,11 +62,10 @@ class MapViewController: UIViewController {
         let rangeInt = sortRadiusSliderModel.sortIntRadiusSlider(radius: searchRadius)
         let myLatitude = Double((locationManager.location?.coordinate.latitude)!)
         let myLongitude = Double((locationManager.location?.coordinate.longitude)!)
-        // TODO: エラーハンドリングをする
         Task {
             do {
                 // データを取得
-                let storeDatas = try await getStoreDataModel.getStoreData(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
+                let storeDatas = try await getStoreDataModel.getStoreDataForMap(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
                 // 画像データを変換
                 let imageDatas = await changeImageModel.changeImageModel(shops: storeDatas.results.shop)
                 // リザルトビューを開く処理へ
@@ -74,7 +74,6 @@ class MapViewController: UIViewController {
                 
             } catch {
                 resultViewErrorAlert()
-                print(error)
             }
         }
     }
