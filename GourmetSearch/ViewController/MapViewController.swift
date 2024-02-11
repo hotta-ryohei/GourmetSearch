@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import KRProgressHUD
 
 class MapViewController: UIViewController {
     
@@ -51,38 +52,70 @@ class MapViewController: UIViewController {
         }
     }
     
-    @IBAction func openSearchResultView(_ sender: UIButton) {
+    @IBAction func openResultView(_ sender: UIButton) {
+        // ロード開始
+        KRProgressHUD.show()
+        
         let getStoreDataModel = GetStoreDataModel()
         let sortRadiusSliderModel = SortRadiusSliderModel()
+        let changeImageModel = ChangeImageModel()
+        
         // getStoreDataの引数を生成
         let rangeInt = sortRadiusSliderModel.sortIntRadiusSlider(radius: searchRadius)
         let myLatitude = Double((locationManager.location?.coordinate.latitude)!)
         let myLongitude = Double((locationManager.location?.coordinate.longitude)!)
+        // TODO: エラーハンドリングをする
         Task {
             do {
                 // データを取得
                 let storeDatas = try await getStoreDataModel.getStoreData(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
+                // 画像データを変換
+                let imageDatas = await changeImageModel.changeImageModel(shops: storeDatas.results.shop)
                 // リザルトビューを開く処理へ
-                self.openResultView(storeDatas: storeDatas)
-
+                KRProgressHUD.dismiss() // ロード終了
+                self.openResultView(storeDatas: storeDatas, imageDatas: imageDatas)
+                
             } catch {
+                resultViewErrorAlert()
                 print(error)
             }
         }
     }
     
+    func resultViewErrorAlert() {
+        let alertController = UIAlertController(
+            title: "データを取得できませんでした。",
+            message: "もう一度試してください。",
+            preferredStyle: .alert
+        )
+        
+        let closeAlert = UIAlertAction(title: "閉じる", style: .cancel, handler: nil)
+        
+        alertController.addAction(closeAlert)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     // ResultViewを開く処理
-    func openResultView(storeDatas: StoreData) {
+    func openResultView(storeDatas: StoreData, imageDatas: [UIImage]) {
         // ResultViewControllerの関数に合った形に変換
         let sendShopInfo = storeDatas.results.shop
         // ResultViewControllerを取得
         let storyboard = self.storyboard!
-        let resultView = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
-        // ResultViewControllerにデータを渡す
-        resultView.shopsNumber = sendShopInfo.count
-        resultView.shops = sendShopInfo
-        navigationController?.pushViewController(resultView, animated: true)
+        
+        // 付近のお店の有無で処理を変更
+        if imageDatas .isEmpty {
+            let resultView = storyboard.instantiateViewController(withIdentifier: "ZeroResultViewController") as! ZeroResultViewController
+            navigationController?.pushViewController(resultView, animated: true)
+        } else {
+            let resultView = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+            // ResultViewControllerにデータを渡す
+            resultView.shops = sendShopInfo
+            resultView.ImageData = imageDatas
+            navigationController?.pushViewController(resultView, animated: true)
+        }
     }
+    
 }
 
 
