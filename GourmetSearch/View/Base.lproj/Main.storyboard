@@ -93,13 +93,13 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvF-cg-hTq">
                                                     <rect key="frame" x="113" y="5" width="260" height="50"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgC-cd-1Is">
                                                     <rect key="frame" x="113" y="50" width="260" height="40"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -159,14 +159,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JB4-XK-aFw">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JB4-XK-aFw">
                                 <rect key="frame" x="0.0" y="103" width="393" height="229"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hsb-52-dw2">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsb-52-dw2">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="229"/>
                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4X-Cz-vok">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b4X-Cz-vok">
                                         <rect key="frame" x="82" y="0.0" width="229" height="229"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="b4X-Cz-vok" secondAttribute="height" multiplier="1:1" priority="250" id="wSz-sZ-tLU"/>
@@ -185,8 +185,8 @@
                                     <constraint firstItem="b4X-Cz-vok" firstAttribute="centerX" secondItem="JB4-XK-aFw" secondAttribute="centerX" id="xz3-Fd-Cat"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6WF-e4-Ajw">
-                                <rect key="frame" x="0.0" y="340" width="393" height="512"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6WF-e4-Ajw">
+                                <rect key="frame" x="0.0" y="332" width="393" height="520"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uIK-TI-URa">
                                         <rect key="frame" x="15" y="10" width="345" height="50"/>
@@ -197,7 +197,7 @@
                                                     <constraint firstAttribute="width" constant="40" id="ojj-vH-txy"/>
                                                     <constraint firstAttribute="height" constant="50" id="v3R-1o-OQ2"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -207,7 +207,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="Pka-Jw-WKo"/>
                                                     <constraint firstAttribute="width" constant="295" id="zYx-PX-2iD"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -226,7 +226,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="e2V-PH-kQ8"/>
                                                     <constraint firstAttribute="width" constant="40" id="vN8-au-LEa"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -236,7 +236,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="AyH-Bz-EoJ"/>
                                                     <constraint firstAttribute="width" constant="295" id="ruu-wX-Nbm"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -255,7 +255,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="HkU-Zq-fob"/>
                                                     <constraint firstAttribute="width" constant="40" id="Lrg-xN-YGB"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -265,7 +265,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="C62-AT-uTu"/>
                                                     <constraint firstAttribute="width" constant="295" id="XLZ-Y2-3vB"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -284,7 +284,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="TRW-aE-YhE"/>
                                                     <constraint firstAttribute="width" constant="40" id="voe-Tb-Y88"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -294,7 +294,7 @@
                                                     <constraint firstAttribute="width" constant="295" id="jx8-R0-zgH"/>
                                                     <constraint firstAttribute="height" constant="50" id="lEX-uj-5Zs"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -313,7 +313,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="i69-jd-fa1"/>
                                                     <constraint firstAttribute="width" constant="40" id="yzk-1t-gCQ"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -323,7 +323,7 @@
                                                     <constraint firstAttribute="width" constant="295" id="Jcm-ah-Iow"/>
                                                     <constraint firstAttribute="height" constant="50" id="mdl-zv-3hd"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -334,23 +334,23 @@
                                         <color key="backgroundColor" systemColor="systemGray3Color"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YhX-rM-hTm">
-                                        <rect key="frame" x="15" y="359" width="345" height="50"/>
+                                        <rect key="frame" x="15" y="359" width="348" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAB-eC-6nT">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="43" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="0mm-jq-Y8B"/>
+                                                    <constraint firstAttribute="width" constant="43" id="0mm-jq-Y8B"/>
                                                     <constraint firstAttribute="height" constant="50" id="cKq-lQ-Xye"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wT5-yl-hGL">
-                                                <rect key="frame" x="50" y="0.0" width="295" height="50"/>
+                                                <rect key="frame" x="53" y="0.0" width="295" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Phc-x7-gxl"/>
-                                                    <constraint firstAttribute="width" constant="295" id="o9M-Uo-KeB"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="295" id="o9M-Uo-KeB"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button" titleAlignment="leading"/>
