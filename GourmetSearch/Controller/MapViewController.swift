@@ -13,14 +13,15 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var searchStore: UIButton!
-    @IBOutlet weak var radiusSlider: UISlider!
+    @IBOutlet weak var radiusChanger: UIStepper!
+    @IBOutlet weak var addPin: UIButton!
     
     private var locationManager: CLLocationManager!
-    var searchRadius: Int = 1000 // 検索する半径
+    var searchRadius: Int = 300 // 検索する半径
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization() // 位置情報の許可を呼び出す
         locationManager.delegate = self
@@ -33,14 +34,15 @@ class MapViewController: UIViewController {
     }
     
     
-    @IBAction func radiusSlider(_ sender: UISlider) {
-        let sortRadiusSliderModel = SortRadiusSliderModel()
-        let afterSortRadiusSlider = sortRadiusSliderModel.sortMetersRadiusSlider(radius: radiusSlider.value)
-        // 返り値0は初期値の1000mになおす
-        if afterSortRadiusSlider != 0 {
-            searchRadius = afterSortRadiusSlider
+    @IBAction func radiusChanger(_ sender: UIStepper) {
+        // UIStepperで取得した値をメートルになおす処理
+        let sortRadiusChangerModel = SortRadiusChangerModel()
+        let afterSortRadiusChanger = sortRadiusChangerModel.sortMetersRadiusChanger(radius: Float(sender.value))
+        // 返り値0は初期値の300mに変更
+        if afterSortRadiusChanger != 0 {
+            searchRadius = afterSortRadiusChanger
         } else {
-            searchRadius = 1000
+            searchRadius = 300
         }
         // ナビゲーションビューのtitleも更新
         navigationItem.title = String("検索範囲: \(searchRadius)m")
@@ -55,11 +57,11 @@ class MapViewController: UIViewController {
         KRProgressHUD.show()
         
         let getStoreDataModel = GetStoreDataModel()
-        let sortRadiusSliderModel = SortRadiusSliderModel()
+        _ = SortRadiusChangerModel()
         let changeImageModel = ChangeImageModel()
         
         // getStoreDataの引数を生成
-        let rangeInt = sortRadiusSliderModel.sortIntRadiusSlider(radius: searchRadius)
+        let rangeInt = Int(radiusChanger.value)
         let myLatitude = Double((locationManager.location?.coordinate.latitude)!)
         let myLongitude = Double((locationManager.location?.coordinate.longitude)!)
         Task {
@@ -110,6 +112,35 @@ class MapViewController: UIViewController {
             resultView.ImageData = imageDatas
             navigationController?.pushViewController(resultView, animated: true)
         }
+    }
+    
+    @IBAction func addPIn(_ sender: Any) {
+        var shopsPin: [MKPointAnnotation] = []  // ピンを入れる変数
+        // ロード開始
+        KRProgressHUD.show()
+        
+        let getStoreDataModel = GetStoreDataModel()
+        _ = SortRadiusChangerModel()
+        let changeImageModel = ChangeImageModel()
+        
+        // getStoreDataの引数を生成
+        let rangeInt = Int(radiusChanger.value)
+        let myLatitude = Double((locationManager.location?.coordinate.latitude)!)
+        let myLongitude = Double((locationManager.location?.coordinate.longitude)!)
+        Task {
+            do {
+                // データを取得
+                let storeDatas = try await getStoreDataModel.getStoreDataForMap(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
+                // 画像データを変換
+                let imageDatas = await changeImageModel.changeImageModel(shops: storeDatas.results.shop)
+                // リザルトビューを開く処理へ
+                KRProgressHUD.dismiss() // ロード終了
+                
+            } catch {
+                resultViewErrorAlert()
+            }
+        }
+        mapView.addAnnotations(shopsPin)
     }
     
 }
@@ -176,4 +207,5 @@ extension MapViewController: MKMapViewDelegate {
         mapView.removeOverlays(mapView.overlays)
         mapView.addOverlay(searchCircle)
     }
+
 }

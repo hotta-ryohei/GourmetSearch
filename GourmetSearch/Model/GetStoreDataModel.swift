@@ -21,7 +21,6 @@ class GetStoreDataModel {
     func getStoreDataForCategory(latitude: Double, longitude: Double, category: String) async throws -> StoreData {
         let APIKey = APIKey.APIKey
         let url = URL(string: "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=\(APIKey)&keyword=\(category)&count=100&format=json")!
-        print(url)
         let (data,_) = try await URLSession.shared.data(from: url)
         let decodedStoreData = try JSONDecoder().decode(StoreData.self, from: data)
         return decodedStoreData

@@ -19,7 +19,7 @@
 		34719DEB2B6C815900F45425 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34719DEA2B6C815900F45425 /* Assets.xcassets */; };
 		34719DEE2B6C815900F45425 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34719DEC2B6C815900F45425 /* LaunchScreen.storyboard */; };
 		34719DF72B6C953B00F45425 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34719DF62B6C953B00F45425 /* MapKit.framework */; };
-		349D792D2B6DF4D200C63469 /* SortRadiusSliderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D792C2B6DF4D200C63469 /* SortRadiusSliderModel.swift */; };
+		349D792D2B6DF4D200C63469 /* SortRadiusChangerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D792C2B6DF4D200C63469 /* SortRadiusChangerModel.swift */; };
 		34C5A31B2B78EFD500C7E11B /* ZeroResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5A31A2B78EFD500C7E11B /* ZeroResultViewController.swift */; };
 		34C5A31F2B78F9A200C7E11B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5A31E2B78F9A200C7E11B /* CategoryViewController.swift */; };
 		34C5A3212B790F5A00C7E11B /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5A3202B790F5A00C7E11B /* CategoryViewCell.swift */; };
@@ -46,7 +46,7 @@
 		34719DED2B6C815900F45425 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34719DEF2B6C815900F45425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34719DF62B6C953B00F45425 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		349D792C2B6DF4D200C63469 /* SortRadiusSliderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortRadiusSliderModel.swift; sourceTree = "<group>"; };
+		349D792C2B6DF4D200C63469 /* SortRadiusChangerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortRadiusChangerModel.swift; sourceTree = "<group>"; };
 		34C5A31A2B78EFD500C7E11B /* ZeroResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroResultViewController.swift; sourceTree = "<group>"; };
 		34C5A31E2B78F9A200C7E11B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		34C5A3202B790F5A00C7E11B /* CategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewCell.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		34719DF82B6CC96500F45425 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				349D792C2B6DF4D200C63469 /* SortRadiusSliderModel.swift */,
+				349D792C2B6DF4D200C63469 /* SortRadiusChangerModel.swift */,
 				34CCF6BD2B74FD2500930CED /* ChangeImageModel.swift */,
 				341FA5842B6F307900E315FB /* StoreDataModel.swift */,
 				34CCF6B52B74988D00930CED /* APIKey.swift */,
@@ -229,7 +229,7 @@
 				34719DE62B6C815800F45425 /* MapViewController.swift in Sources */,
 				34719DE22B6C815800F45425 /* AppDelegate.swift in Sources */,
 				34C5A31F2B78F9A200C7E11B /* CategoryViewController.swift in Sources */,
-				349D792D2B6DF4D200C63469 /* SortRadiusSliderModel.swift in Sources */,
+				349D792D2B6DF4D200C63469 /* SortRadiusChangerModel.swift in Sources */,
 				34C5A31B2B78EFD500C7E11B /* ZeroResultViewController.swift in Sources */,
 				3450F9152B6E92E100143473 /* GetStoreDataModel.swift in Sources */,
 				34C5A3212B790F5A00C7E11B /* CategoryViewCell.swift in Sources */,

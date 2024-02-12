@@ -21,44 +21,63 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.5" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="72P-oR-R1N">
-                                <rect key="frame" x="72" y="689" width="249" height="31"/>
-                                <connections>
-                                    <action selector="radiusSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="F3M-lE-MXO"/>
-                                </connections>
-                            </slider>
                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYm-Ny-MHz">
-                                <rect key="frame" x="71" y="118.00000000000001" width="251" height="34.666666666666671"/>
+                                <rect key="frame" x="116.66666666666669" y="699" width="160" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="RJp-zK-ryd"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="VMt-qs-1gS"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="お店を検索">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="filled" title="お店を検索"/>
+                                <buttonConfiguration key="configuration" style="filled" title="検索結果画面へ"/>
                                 <connections>
                                     <action selector="openResultView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w7M-OD-dT3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="af6-fI-Qq7">
+                                <rect key="frame" x="337" y="203" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kSx-Ug-6jN"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="rBo-J1-L9T"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="addPIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kvg-TP-HPw"/>
+                                </connections>
+                            </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="4QZ-mt-fF4">
+                                <rect key="frame" x="149.66666666666666" y="120" width="94" height="32"/>
+                                <connections>
+                                    <action selector="radiusChanger:" destination="BYZ-38-t0r" eventType="valueChanged" id="ALD-Sq-C96"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.69019607839999997" green="0.90980392160000001" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="72P-oR-R1N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="74" id="1Lu-at-8Pv"/>
                             <constraint firstItem="560-QI-eX4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4YJ-3a-buf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="af6-fI-Qq7" secondAttribute="trailing" id="6Sj-QC-XcO"/>
                             <constraint firstItem="560-QI-eX4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EzY-aP-MHT"/>
                             <constraint firstItem="560-QI-eX4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="LKn-79-wfg"/>
+                            <constraint firstItem="af6-fI-Qq7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="337" id="LOX-6d-faE"/>
                             <constraint firstItem="560-QI-eX4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mzw-O9-epY"/>
-                            <constraint firstItem="PYm-Ny-MHz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="71" id="NSi-Kh-Fvt"/>
-                            <constraint firstItem="560-QI-eX4" firstAttribute="centerX" secondItem="PYm-Ny-MHz" secondAttribute="centerX" id="V2d-8f-JS7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="72P-oR-R1N" secondAttribute="bottom" constant="50" id="bFx-cI-iJa"/>
-                            <constraint firstItem="PYm-Ny-MHz" firstAttribute="centerX" secondItem="72P-oR-R1N" secondAttribute="centerX" id="lPC-La-ELc"/>
-                            <constraint firstItem="PYm-Ny-MHz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="qEZ-m4-shZ"/>
+                            <constraint firstItem="4QZ-mt-fF4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Re4-ux-NqR"/>
+                            <constraint firstItem="af6-fI-Qq7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Xko-fo-ZIl"/>
+                            <constraint firstItem="4QZ-mt-fF4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="jDu-1L-jce"/>
+                            <constraint firstItem="PYm-Ny-MHz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lJV-pN-Ydv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PYm-Ny-MHz" secondAttribute="bottom" constant="30" id="zLJ-lh-qJb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="cDf-Gu-ax2"/>
                     <navigationItem key="navigationItem" title="title" id="QHl-FJ-KRh"/>
                     <connections>
+                        <outlet property="addPin" destination="af6-fI-Qq7" id="h8B-gd-mUD"/>
                         <outlet property="mapView" destination="560-QI-eX4" id="S6r-cL-2zB"/>
-                        <outlet property="radiusSlider" destination="72P-oR-R1N" id="48y-BR-Hyv"/>
+                        <outlet property="radiusChanger" destination="4QZ-mt-fF4" id="hIw-zl-zoJ"/>
                         <outlet property="searchStore" destination="PYm-Ny-MHz" id="DL6-Qm-QLG"/>
                     </connections>
                 </viewController>
@@ -584,6 +603,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="yRa-CI-wHh"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bqi-Im-a6j">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -618,6 +638,7 @@
     </scenes>
     <resources>
         <image name="fork.knife" catalog="system" width="94" height="128"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="map" catalog="system" width="128" height="112"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
