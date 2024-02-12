@@ -6,15 +6,14 @@
 //
 
 import Foundation
-
 import UIKit
+import CoreLocation
+
 class ZeroResultViewController: UIViewController{
     
     @IBOutlet var zeroResultViewController: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bWe-Ka-KNs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p7B-Pt-s5r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" showsUserTrackingButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="560-QI-eX4">
-                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.5" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="72P-oR-R1N">
-                                <rect key="frame" x="72" y="738" width="249" height="31"/>
+                                <rect key="frame" x="72" y="689" width="249" height="31"/>
                                 <connections>
                                     <action selector="radiusSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="F3M-lE-MXO"/>
                                 </connections>
@@ -43,17 +43,18 @@
                         <color key="backgroundColor" red="0.69019607839999997" green="0.90980392160000001" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="72P-oR-R1N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="74" id="1Lu-at-8Pv"/>
-                            <constraint firstItem="560-QI-eX4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1jT-tl-hDF"/>
-                            <constraint firstItem="560-QI-eX4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="C3O-fY-Y7Z"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="560-QI-eX4" secondAttribute="bottom" constant="-34" id="Mg5-Jk-DzD"/>
+                            <constraint firstItem="560-QI-eX4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4YJ-3a-buf"/>
+                            <constraint firstItem="560-QI-eX4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EzY-aP-MHT"/>
+                            <constraint firstItem="560-QI-eX4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="LKn-79-wfg"/>
+                            <constraint firstItem="560-QI-eX4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mzw-O9-epY"/>
                             <constraint firstItem="PYm-Ny-MHz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="71" id="NSi-Kh-Fvt"/>
+                            <constraint firstItem="560-QI-eX4" firstAttribute="centerX" secondItem="PYm-Ny-MHz" secondAttribute="centerX" id="V2d-8f-JS7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="72P-oR-R1N" secondAttribute="bottom" constant="50" id="bFx-cI-iJa"/>
-                            <constraint firstItem="560-QI-eX4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fHV-hV-4Ab"/>
                             <constraint firstItem="PYm-Ny-MHz" firstAttribute="centerX" secondItem="72P-oR-R1N" secondAttribute="centerX" id="lPC-La-ELc"/>
                             <constraint firstItem="PYm-Ny-MHz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="qEZ-m4-shZ"/>
-                            <constraint firstItem="560-QI-eX4" firstAttribute="centerX" secondItem="72P-oR-R1N" secondAttribute="centerX" id="uZV-ix-IaQ"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="cDf-Gu-ax2"/>
                     <navigationItem key="navigationItem" title="title" id="QHl-FJ-KRh"/>
                     <connections>
                         <outlet property="mapView" destination="560-QI-eX4" id="S6r-cL-2zB"/>
@@ -63,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2321" y="-88"/>
+            <point key="canvasLocation" x="3165.6488549618321" y="-88.028169014084511"/>
         </scene>
         <!--ResultViewController-->
         <scene sceneID="edc-kU-nJB">
@@ -149,7 +150,89 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Noy-Bd-ZjP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3107.6335877862593" y="-88.028169014084511"/>
+            <point key="canvasLocation" x="4173" y="-88"/>
+        </scene>
+        <!--カテゴリ一覧-->
+        <scene sceneID="JXk-wv-HiI">
+            <objects>
+                <viewController id="vb0-ZM-GPJ" customClass="CategoryViewController" customModule="GourmetSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WMU-Xk-KaR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ns9-e9-hQ4">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryViewCell" rowHeight="100" id="gle-aU-S7L" customClass="CategoryViewCell" customModule="GourmetSearch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gle-aU-S7L" id="WDe-TC-hTo">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="8DF-yf-vkY">
+                                                    <rect key="frame" x="10" y="5" width="373" height="90"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J3O-Yi-akU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="90" id="77X-EH-Pdd"/>
+                                                                <constraint firstAttribute="width" constant="100" id="JAU-Ro-Yel"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-RR-IZV">
+                                                            <rect key="frame" x="123" y="0.0" width="250" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="240" id="Du1-Ci-kyj"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="90" id="vb2-4r-kvI"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8DF-yf-vkY" firstAttribute="top" secondItem="WDe-TC-hTo" secondAttribute="top" constant="5" id="avb-aI-WTM"/>
+                                                <constraint firstAttribute="bottom" secondItem="8DF-yf-vkY" secondAttribute="bottom" constant="5" id="gCf-gm-jUL"/>
+                                                <constraint firstItem="8DF-yf-vkY" firstAttribute="centerY" secondItem="WDe-TC-hTo" secondAttribute="centerY" id="mp7-JM-Kci"/>
+                                                <constraint firstAttribute="trailing" secondItem="8DF-yf-vkY" secondAttribute="trailing" constant="10" id="vjX-kX-8P1"/>
+                                                <constraint firstItem="8DF-yf-vkY" firstAttribute="leading" secondItem="WDe-TC-hTo" secondAttribute="leading" constant="10" id="weN-O3-EtI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryImage" destination="J3O-Yi-akU" id="u6Q-5L-S5I"/>
+                                            <outlet property="categoryName" destination="j6c-RR-IZV" id="i0s-1J-mev"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vb0-ZM-GPJ" id="Ojc-xd-Djk"/>
+                                    <outlet property="delegate" destination="vb0-ZM-GPJ" id="gnS-J7-xFa"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RxA-Ma-fue"/>
+                        <color key="backgroundColor" red="0.69019607839999997" green="0.90980392160000001" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ns9-e9-hQ4" firstAttribute="top" secondItem="RxA-Ma-fue" secondAttribute="top" id="uyE-Df-5c9"/>
+                            <constraint firstAttribute="bottom" secondItem="Ns9-e9-hQ4" secondAttribute="bottom" id="wFL-to-9I7"/>
+                            <constraint firstItem="Ns9-e9-hQ4" firstAttribute="trailing" secondItem="RxA-Ma-fue" secondAttribute="trailing" id="xiU-ar-aEH"/>
+                            <constraint firstItem="Ns9-e9-hQ4" firstAttribute="leading" secondItem="RxA-Ma-fue" secondAttribute="leading" id="xvG-3C-0jh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="カテゴリ一覧" id="mtY-aw-PwJ"/>
+                    <connections>
+                        <outlet property="categoryView" destination="Ns9-e9-hQ4" id="hPn-dn-Ukv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tCs-KD-XC3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3165.6488549618321" y="604.92957746478874"/>
         </scene>
         <!--検索結果-->
         <scene sceneID="Awr-oM-SQD">
@@ -192,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WO5-EC-mIn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3107.6335877862593" y="607.04225352112678"/>
+            <point key="canvasLocation" x="4172" y="605"/>
         </scene>
         <!--店舗詳細-->
         <scene sceneID="Mn8-OE-IXJ">
@@ -467,12 +550,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKp-QR-8ia" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3875.5725190839694" y="-88.028169014084511"/>
+            <point key="canvasLocation" x="5179" y="-88"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--マップ検索-->
         <scene sceneID="0wh-hF-mLv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bWe-Ka-KNs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="マップ検索" image="map" catalog="system" selectedImage="map" id="qfW-Q0-ufw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7zb-0c-ri7">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -486,15 +570,55 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="75u-Ac-Ele"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Sb7-54-a7d"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjU-t2-cEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1315" y="-88"/>
+            <point key="canvasLocation" x="2190" y="-88"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="WpE-9Y-b7f">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="p7B-Pt-s5r" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="yRa-CI-wHh"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bqi-Im-a6j">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bWe-Ka-KNs" kind="relationship" relationship="viewControllers" id="ih7-DK-rwF"/>
+                        <segue destination="zM9-Tc-91H" kind="relationship" relationship="viewControllers" id="8G4-0e-x44"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="boh-Df-Dud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066" y="232"/>
+        </scene>
+        <!--カテゴリ検索-->
+        <scene sceneID="KUT-zT-jRq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zM9-Tc-91H" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="カテゴリ検索" image="fork.knife" catalog="system" selectedImage="fork.knife" id="pHm-NF-Cnp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6YT-Oh-M7J">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vb0-ZM-GPJ" kind="relationship" relationship="rootViewController" id="wSa-oN-VbJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vCd-QK-usJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2190" y="605"/>
         </scene>
     </scenes>
     <resources>
+        <image name="fork.knife" catalog="system" width="94" height="128"/>
+        <image name="map" catalog="system" width="128" height="112"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
