@@ -74,6 +74,7 @@ extension CategoryViewController: UITableViewDataSource,UITableViewDelegate {
                 KRProgressHUD.dismiss() // ロード終了
                 openResultView(storeDatas: storeDatas, imageDatas: imageDatas)
             } catch {
+                KRProgressHUD.dismiss()
                 resultViewErrorAlert()
             }
         }

@@ -20,8 +20,8 @@ class GetStoreDataModel {
     // カテゴリ別にお店を近い順に取得
     func getStoreDataForCategory(latitude: Double, longitude: Double, category: String) async throws -> StoreData {
         let APIKey = APIKey.APIKey
-        let url = URL(string: "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=\(APIKey)&lat=\(latitude)&lng=\(longitude)&range=5&keyword=\(category)&order=4&count=100&format=json")!
-
+        let url = URL(string: "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=\(APIKey)&keyword=\(category)&count=100&format=json")!
+        print(url)
         let (data,_) = try await URLSession.shared.data(from: url)
         let decodedStoreData = try JSONDecoder().decode(StoreData.self, from: data)
         return decodedStoreData
