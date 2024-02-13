@@ -36,8 +36,8 @@
                                     <action selector="openResultView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w7M-OD-dT3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="af6-fI-Qq7">
-                                <rect key="frame" x="335" y="213" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="af6-fI-Qq7">
+                                <rect key="frame" x="334" y="202" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kSx-Ug-6jN"/>
@@ -50,7 +50,11 @@
                                 </connections>
                             </button>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="4QZ-mt-fF4">
-                                <rect key="frame" x="149.66666666666666" y="120" width="94" height="32"/>
+                                <rect key="frame" x="121.66666666666669" y="120" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="eQK-07-F74"/>
+                                    <constraint firstAttribute="height" constant="50" id="j7p-qd-SZe"/>
+                                </constraints>
                                 <connections>
                                     <action selector="radiusChanger:" destination="BYZ-38-t0r" eventType="valueChanged" id="ALD-Sq-C96"/>
                                 </connections>

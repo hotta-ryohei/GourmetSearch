@@ -24,6 +24,9 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let stepper = radiusChanger
+        let scale: CGFloat = 1.5
+        stepper!.transform = CGAffineTransform(scaleX: scale, y: scale)
         
         locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization() // 位置情報の許可を呼び出す
@@ -142,7 +145,6 @@ class MapViewController: UIViewController {
                 // 画像データを変換
                 let imageDatas = await changeImageModel.changeImageModel(shops: storeDatas.results.shop)
                 
-                // TODO: マップに立っているピンを一度初期化する
                 // ピンを表示する処理
                 shopsPin = pinModel.pinModel(shops: storeDatas.results.shop)
                 KRProgressHUD.dismiss() // ロード終了
@@ -158,21 +160,30 @@ class MapViewController: UIViewController {
     
     // ピンをタップしたら詳細画面を開くメソッド
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        var latitude = view.annotation?.coordinate.latitude
-        var longitude = view.annotation?.coordinate.longitude
-        // 位置情報が一致した店舗情報の配列番号を取得
-        var count: Int = 0
-        for shop in shops {
-            if latitude == shop.lat && longitude == shop.lng { break }
-            count += 1
+        do {
+            let latitude = view.annotation?.coordinate.latitude
+            let longitude = view.annotation?.coordinate.longitude
+            // 位置情報が一致した店舗情報の配列番号を取得する処理
+            var count: Int = 0
+            for shop in shops {
+                if latitude == shop.lat && longitude == shop.lng { break }
+                count += 1
+            }
+    
+            // 店舗詳細画面を開く処理
+            let storyboard = self.storyboard!
+            let shopInfoView = storyboard.instantiateViewController(withIdentifier: "ShopInfoViewController") as! ShopInfoViewController
+            
+            // shopsに含まれていないAnnotationViewをタップしたらindexErrorをスローし、エラーアラートを表示
+            guard count < shops.count && count < UIImages.count else {
+                throw ErrorModel.MyError.indexError
+            }
+            shopInfoView.sentInfo = shops[count]
+            shopInfoView.sentPhoto = UIImages[count]
+            navigationController?.pushViewController(shopInfoView, animated: true)
+        } catch {
+            resultViewErrorAlert()
         }
-        // 店舗詳細画面を開く処理
-        let storyboard = self.storyboard!
-        let shopInfoView = storyboard.instantiateViewController(withIdentifier: "ShopInfoViewController") as! ShopInfoViewController
-        let changeImageModel = ChangeImageModel()
-        shopInfoView.sentInfo = shops[count]
-        shopInfoView.sentPhoto = UIImages[count]
-        navigationController?.pushViewController(shopInfoView, animated: true)
     }
     
 }
@@ -185,15 +196,12 @@ extension MapViewController: CLLocationManagerDelegate {
             // 許可がされていない場合
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization() // 許可を求める
-            
             // 拒否されている場合
         case .restricted, .denied:
             locationPermissionAlert()   // locationPermissionAlertを表示
-            
             // 許可されている場合
         case .authorizedWhenInUse, .authorizedAlways:
             locationManager.startUpdatingLocation() // 位置情報を使用開始
-            
         default:
             break
         }
