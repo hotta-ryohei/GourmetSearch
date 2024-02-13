@@ -180,7 +180,7 @@ class MapViewController: UIViewController {
             }
             shopInfoView.sentInfo = shops[count]
             shopInfoView.sentPhoto = UIImages[count]
-            navigationController?.pushViewController(shopInfoView, animated: true)
+            present(shopInfoView, animated: true, completion: nil)
         } catch {
             resultViewErrorAlert()
         }
