@@ -37,14 +37,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="af6-fI-Qq7">
-                                <rect key="frame" x="337" y="203" width="50" height="50"/>
+                                <rect key="frame" x="335" y="213" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kSx-Ug-6jN"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="rBo-J1-L9T"/>
+                                    <constraint firstAttribute="width" constant="50" id="rBo-J1-L9T"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="mappin" catalog="system"/>
                                 <connections>
                                     <action selector="addPIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kvg-TP-HPw"/>
                                 </connections>
@@ -60,13 +60,12 @@
                         <color key="backgroundColor" red="0.69019607839999997" green="0.90980392160000001" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="560-QI-eX4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4YJ-3a-buf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="af6-fI-Qq7" secondAttribute="trailing" id="6Sj-QC-XcO"/>
                             <constraint firstItem="560-QI-eX4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EzY-aP-MHT"/>
                             <constraint firstItem="560-QI-eX4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="LKn-79-wfg"/>
-                            <constraint firstItem="af6-fI-Qq7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="337" id="LOX-6d-faE"/>
                             <constraint firstItem="560-QI-eX4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mzw-O9-epY"/>
                             <constraint firstItem="4QZ-mt-fF4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Re4-ux-NqR"/>
-                            <constraint firstItem="af6-fI-Qq7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Xko-fo-ZIl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="af6-fI-Qq7" secondAttribute="trailing" constant="8" id="XHe-VO-j1M"/>
+                            <constraint firstItem="af6-fI-Qq7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="Xko-fo-ZIl"/>
                             <constraint firstItem="4QZ-mt-fF4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="jDu-1L-jce"/>
                             <constraint firstItem="PYm-Ny-MHz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lJV-pN-Ydv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PYm-Ny-MHz" secondAttribute="bottom" constant="30" id="zLJ-lh-qJb"/>
@@ -638,8 +637,8 @@
     </scenes>
     <resources>
         <image name="fork.knife" catalog="system" width="94" height="128"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="map" catalog="system" width="128" height="112"/>
+        <image name="mappin" catalog="system" width="106" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

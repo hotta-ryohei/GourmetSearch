@@ -18,6 +18,9 @@ class MapViewController: UIViewController {
     
     private var locationManager: CLLocationManager!
     var searchRadius: Int = 300 // 検索する半径
+    var shops: [Shop] = []  // 店舗情報を一時保存する変数
+    var UIImages: [UIImage] = []    // 写真を一時保存する変数
+    var shopsPin: [MKPointAnnotation] = []  // ピンを入れる変数
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +36,12 @@ class MapViewController: UIViewController {
         
     }
     
-    
+    // UIStepperを操作した時の処理
     @IBAction func radiusChanger(_ sender: UIStepper) {
         // UIStepperで取得した値をメートルになおす処理
         let sortRadiusChangerModel = SortRadiusChangerModel()
         let afterSortRadiusChanger = sortRadiusChangerModel.sortMetersRadiusChanger(radius: Float(sender.value))
-        // 返り値0は初期値の300mに変更
+        // エラーの場合は初期値の300mに変更
         if afterSortRadiusChanger != 0 {
             searchRadius = afterSortRadiusChanger
         } else {
@@ -52,6 +55,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    // 検索ボタンが押された時の処理
     @IBAction func openResultView(_ sender: UIButton) {
         // ロード開始
         KRProgressHUD.show()
@@ -75,11 +79,13 @@ class MapViewController: UIViewController {
                 self.openResultView(storeDatas: storeDatas, imageDatas: imageDatas)
                 
             } catch {
+                KRProgressHUD.dismiss()
                 resultViewErrorAlert()
             }
         }
     }
     
+    // データが取得できなかったとき表示するアラート
     func resultViewErrorAlert() {
         let alertController = UIAlertController(
             title: "データを取得できませんでした。",
@@ -114,13 +120,15 @@ class MapViewController: UIViewController {
         }
     }
     
+    // ピンを表示するメソッド
     @IBAction func addPIn(_ sender: Any) {
-        var shopsPin: [MKPointAnnotation] = []  // ピンを入れる変数
         // ロード開始
         KRProgressHUD.show()
+        mapView.removeAnnotations(shopsPin) // 現在あるピンを削除
+        shopsPin = []   // 中身を初期化
         
         let getStoreDataModel = GetStoreDataModel()
-        _ = SortRadiusChangerModel()
+        let pinModel = PinModel()
         let changeImageModel = ChangeImageModel()
         
         // getStoreDataの引数を生成
@@ -133,14 +141,38 @@ class MapViewController: UIViewController {
                 let storeDatas = try await getStoreDataModel.getStoreDataForMap(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
                 // 画像データを変換
                 let imageDatas = await changeImageModel.changeImageModel(shops: storeDatas.results.shop)
-                // リザルトビューを開く処理へ
-                KRProgressHUD.dismiss() // ロード終了
                 
+                // TODO: マップに立っているピンを一度初期化する
+                // ピンを表示する処理
+                shopsPin = pinModel.pinModel(shops: storeDatas.results.shop)
+                KRProgressHUD.dismiss() // ロード終了
+                mapView.addAnnotations(shopsPin)    // ピンを追加
+                shops = storeDatas.results.shop
+                UIImages = imageDatas
             } catch {
+                KRProgressHUD.dismiss() // ロード終了
                 resultViewErrorAlert()
             }
         }
-        mapView.addAnnotations(shopsPin)
+    }
+    
+    // ピンをタップしたら詳細画面を開くメソッド
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        var latitude = view.annotation?.coordinate.latitude
+        var longitude = view.annotation?.coordinate.longitude
+        // 位置情報が一致した店舗情報の配列番号を取得
+        var count: Int = 0
+        for shop in shops {
+            if latitude == shop.lat && longitude == shop.lng { break }
+            count += 1
+        }
+        // 店舗詳細画面を開く処理
+        let storyboard = self.storyboard!
+        let shopInfoView = storyboard.instantiateViewController(withIdentifier: "ShopInfoViewController") as! ShopInfoViewController
+        let changeImageModel = ChangeImageModel()
+        shopInfoView.sentInfo = shops[count]
+        shopInfoView.sentPhoto = UIImages[count]
+        navigationController?.pushViewController(shopInfoView, animated: true)
     }
     
 }
@@ -207,5 +239,5 @@ extension MapViewController: MKMapViewDelegate {
         mapView.removeOverlays(mapView.overlays)
         mapView.addOverlay(searchCircle)
     }
-
+    
 }
