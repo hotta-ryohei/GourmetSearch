@@ -58,9 +58,6 @@ extension CategoryViewController: UITableViewDataSource,UITableViewDelegate {
     // ResultViewを開く処理
     func openResultView(cellNumber: Int) {
         KRProgressHUD.show()
-        // ResultViewControllerを取得
-        let storyboard = self.storyboard!
-        let resultView = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
         let getStoreDataModel = GetStoreDataModel()
         let changeImageModel = ChangeImageModel()
         

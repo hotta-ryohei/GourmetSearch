@@ -24,6 +24,8 @@ struct Shop: Decodable {
     let urls: Url
     let photo: Photo
     let genre: Genre
+    let lat: Double
+    let lng: Double
 }
 
 struct Url:Decodable {
@@ -35,7 +37,6 @@ struct Photo: Decodable {
 
 struct PhotoURL: Decodable {
     let l: String
-    let s: String
 }
 
 struct Genre: Decodable {

@@ -13,14 +13,21 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var searchStore: UIButton!
-    @IBOutlet weak var radiusSlider: UISlider!
+    @IBOutlet weak var radiusChanger: UIStepper!
+    @IBOutlet weak var addPin: UIButton!
     
     private var locationManager: CLLocationManager!
-    var searchRadius: Int = 1000 // 検索する半径
+    var searchRadius: Int = 300 // 検索する半径
+    var shops: [Shop] = []  // 店舗情報を一時保存する変数
+    var UIImages: [UIImage] = []    // 写真を一時保存する変数
+    var shopsPin: [MKPointAnnotation] = []  // ピンを入れる変数
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let stepper = radiusChanger
+        let scale: CGFloat = 1.5
+        stepper!.transform = CGAffineTransform(scaleX: scale, y: scale)
+        
         locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization() // 位置情報の許可を呼び出す
         locationManager.delegate = self
@@ -32,15 +39,16 @@ class MapViewController: UIViewController {
         
     }
     
-    
-    @IBAction func radiusSlider(_ sender: UISlider) {
-        let sortRadiusSliderModel = SortRadiusSliderModel()
-        let afterSortRadiusSlider = sortRadiusSliderModel.sortMetersRadiusSlider(radius: radiusSlider.value)
-        // 返り値0は初期値の1000mになおす
-        if afterSortRadiusSlider != 0 {
-            searchRadius = afterSortRadiusSlider
+    // UIStepperを操作した時の処理
+    @IBAction func radiusChanger(_ sender: UIStepper) {
+        // UIStepperで取得した値をメートルになおす処理
+        let sortRadiusChangerModel = SortRadiusChangerModel()
+        let afterSortRadiusChanger = sortRadiusChangerModel.sortMetersRadiusChanger(radius: Float(sender.value))
+        // エラーの場合は初期値の300mに変更
+        if afterSortRadiusChanger != 0 {
+            searchRadius = afterSortRadiusChanger
         } else {
-            searchRadius = 1000
+            searchRadius = 300
         }
         // ナビゲーションビューのtitleも更新
         navigationItem.title = String("検索範囲: \(searchRadius)m")
@@ -50,16 +58,17 @@ class MapViewController: UIViewController {
         }
     }
     
+    // 検索ボタンが押された時の処理
     @IBAction func openResultView(_ sender: UIButton) {
         // ロード開始
         KRProgressHUD.show()
         
         let getStoreDataModel = GetStoreDataModel()
-        let sortRadiusSliderModel = SortRadiusSliderModel()
+        _ = SortRadiusChangerModel()
         let changeImageModel = ChangeImageModel()
         
         // getStoreDataの引数を生成
-        let rangeInt = sortRadiusSliderModel.sortIntRadiusSlider(radius: searchRadius)
+        let rangeInt = Int(radiusChanger.value)
         let myLatitude = Double((locationManager.location?.coordinate.latitude)!)
         let myLongitude = Double((locationManager.location?.coordinate.longitude)!)
         Task {
@@ -73,11 +82,13 @@ class MapViewController: UIViewController {
                 self.openResultView(storeDatas: storeDatas, imageDatas: imageDatas)
                 
             } catch {
+                KRProgressHUD.dismiss()
                 resultViewErrorAlert()
             }
         }
     }
     
+    // データが取得できなかったとき表示するアラート
     func resultViewErrorAlert() {
         let alertController = UIAlertController(
             title: "データを取得できませんでした。",
@@ -112,6 +123,69 @@ class MapViewController: UIViewController {
         }
     }
     
+    // ピンを表示するメソッド
+    @IBAction func addPIn(_ sender: Any) {
+        // ロード開始
+        KRProgressHUD.show()
+        mapView.removeAnnotations(shopsPin) // 現在あるピンを削除
+        shopsPin = []   // 中身を初期化
+        
+        let getStoreDataModel = GetStoreDataModel()
+        let pinModel = PinModel()
+        let changeImageModel = ChangeImageModel()
+        
+        // getStoreDataの引数を生成
+        let rangeInt = Int(radiusChanger.value)
+        let myLatitude = Double((locationManager.location?.coordinate.latitude)!)
+        let myLongitude = Double((locationManager.location?.coordinate.longitude)!)
+        Task {
+            do {
+                // データを取得
+                let storeDatas = try await getStoreDataModel.getStoreDataForMap(range: rangeInt, latitude: myLatitude, longitude: myLongitude)
+                // 画像データを変換
+                let imageDatas = await changeImageModel.changeImageModel(shops: storeDatas.results.shop)
+                
+                // ピンを表示する処理
+                shopsPin = pinModel.pinModel(shops: storeDatas.results.shop)
+                KRProgressHUD.dismiss() // ロード終了
+                mapView.addAnnotations(shopsPin)    // ピンを追加
+                shops = storeDatas.results.shop
+                UIImages = imageDatas
+            } catch {
+                KRProgressHUD.dismiss() // ロード終了
+                resultViewErrorAlert()
+            }
+        }
+    }
+    
+    // ピンをタップしたら詳細画面を開くメソッド
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        do {
+            let latitude = view.annotation?.coordinate.latitude
+            let longitude = view.annotation?.coordinate.longitude
+            // 位置情報が一致した店舗情報の配列番号を取得する処理
+            var count: Int = 0
+            for shop in shops {
+                if latitude == shop.lat && longitude == shop.lng { break }
+                count += 1
+            }
+    
+            // 店舗詳細画面を開く処理
+            let storyboard = self.storyboard!
+            let shopInfoView = storyboard.instantiateViewController(withIdentifier: "ShopInfoViewController") as! ShopInfoViewController
+            
+            // shopsに含まれていないAnnotationViewをタップしたらindexErrorをスローし、エラーアラートを表示
+            guard count < shops.count && count < UIImages.count else {
+                throw ErrorModel.MyError.indexError
+            }
+            shopInfoView.sentInfo = shops[count]
+            shopInfoView.sentPhoto = UIImages[count]
+            present(shopInfoView, animated: true, completion: nil)
+        } catch {
+            resultViewErrorAlert()
+        }
+    }
+    
 }
 
 
@@ -122,15 +196,12 @@ extension MapViewController: CLLocationManagerDelegate {
             // 許可がされていない場合
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization() // 許可を求める
-            
             // 拒否されている場合
         case .restricted, .denied:
             locationPermissionAlert()   // locationPermissionAlertを表示
-            
             // 許可されている場合
         case .authorizedWhenInUse, .authorizedAlways:
             locationManager.startUpdatingLocation() // 位置情報を使用開始
-            
         default:
             break
         }
@@ -176,4 +247,5 @@ extension MapViewController: MKMapViewDelegate {
         mapView.removeOverlays(mapView.overlays)
         mapView.addOverlay(searchCircle)
     }
+    
 }
