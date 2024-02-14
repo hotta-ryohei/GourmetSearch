@@ -64,7 +64,6 @@ class MapViewController: UIViewController {
         KRProgressHUD.show()
         
         let getStoreDataModel = GetStoreDataModel()
-        _ = SortRadiusChangerModel()
         let changeImageModel = ChangeImageModel()
         
         // getStoreDataの引数を生成
