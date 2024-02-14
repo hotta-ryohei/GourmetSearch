@@ -28,7 +28,6 @@
 		34CCF6B62B74988D00930CED /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CCF6B52B74988D00930CED /* APIKey.swift */; };
 		34CCF6BC2B74F03B00930CED /* ResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CCF6BB2B74F03B00930CED /* ResultViewCell.swift */; };
 		34CCF6BE2B74FD2500930CED /* ChangeImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CCF6BD2B74FD2500930CED /* ChangeImageModel.swift */; };
-		34CCF6C12B75262600930CED /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 34CCF6C02B75262600930CED /* PKHUD */; };
 		34CCF6C42B75270800930CED /* KRProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 34CCF6C32B75270800930CED /* KRProgressHUD */; };
 		34FF86B52B7A6756005FE10A /* PinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FF86B42B7A6756005FE10A /* PinModel.swift */; };
 /* End PBXBuildFile section */
@@ -67,7 +66,6 @@
 			files = (
 				34CCF6C42B75270800930CED /* KRProgressHUD in Frameworks */,
 				34719DF72B6C953B00F45425 /* MapKit.framework in Frameworks */,
-				34CCF6C12B75262600930CED /* PKHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +167,6 @@
 			);
 			name = GourmetSearch;
 			packageProductDependencies = (
-				34CCF6C02B75262600930CED /* PKHUD */,
 				34CCF6C32B75270800930CED /* KRProgressHUD */,
 			);
 			productName = GourmetSearch;
@@ -408,6 +405,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -436,6 +434,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -492,11 +491,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		34CCF6C02B75262600930CED /* PKHUD */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34CCF6BF2B75262600930CED /* XCRemoteSwiftPackageReference "PKHUD" */;
-			productName = PKHUD;
-		};
 		34CCF6C32B75270800930CED /* KRProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 34CCF6C22B75270800930CED /* XCRemoteSwiftPackageReference "KRProgressHUD" */;
